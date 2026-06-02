@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Work Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #ffffff;
+    color: #0A0A0A;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-hero {
+    font-size: clamp(64px, 9vw, 118px);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    font-weight: 100;
+  }
+
+  .text-display {
+    font-size: clamp(40px, 6vw, 78px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    font-weight: 200;
+  }
+
+  .nav-link {
+    @apply text-[11px] tracking-[0.2em] font-medium uppercase transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-[#003DA5] text-white text-[11px] tracking-[0.18em] uppercase font-medium px-8 py-3.5
+           border border-[#003DA5]
+           hover:bg-white hover:text-[#003DA5]
+           transition-colors duration-300 inline-block;
+  }
+
+  .section-pad {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .container-wide {
+    @apply max-w-[1380px] mx-auto px-6 md:px-10 lg:px-16;
+  }
+}
