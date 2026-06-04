@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 
 function FadeUp({ children, delay = 0 }) {
@@ -45,7 +46,7 @@ export default function UnProjet() {
               Nous sommes là pour répondre à toutes vos questions et vous accompagner dans vos demandes de devis.
             </p>
             <div>
-              <a href="#" className="btn-primary">Contact</a>
+              <Link to="/contact" className="btn-primary">Contact</Link>
             </div>
           </div>
         </FadeUp>

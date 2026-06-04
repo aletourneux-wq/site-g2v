@@ -246,11 +246,11 @@ export default function SavoirFairePage() {
                       variants={{ hovered: { filter: 'grayscale(0%)', scale: 1.04 } }}
                       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                     />
-                    {/* Gradient overlay permanent */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                    {/* Fond sombre supplémentaire au survol */}
+                    {/* Gradient overlay permanent — plus fort sur mobile pour lisibilité */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent md:from-black/70 md:via-black/20" />
+                    {/* Fond sombre supplémentaire au survol (desktop uniquement) */}
                     <motion.div
-                      className="absolute bottom-0 left-0 right-0"
+                      className="absolute bottom-0 left-0 right-0 hidden md:block"
                       style={{ height: '60%', opacity: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.65), transparent)' }}
                       variants={{ hovered: { opacity: 1 } }}
                       transition={{ duration: 0.3 }}
@@ -263,8 +263,16 @@ export default function SavoirFairePage() {
                       >
                         {c.title}
                       </p>
+                      {/* Texte toujours visible sur mobile */}
+                      <p
+                        className="text-white/80 font-light leading-relaxed md:hidden"
+                        style={{ fontSize: '11px' }}
+                      >
+                        {c.text}
+                      </p>
+                      {/* Texte au survol sur desktop */}
                       <motion.p
-                        className="text-white/75 font-light leading-relaxed"
+                        className="text-white/75 font-light leading-relaxed hidden md:block"
                         style={{ opacity: 0, y: 8, fontSize: '11px' }}
                         variants={{ hovered: { opacity: 1, y: 0 } }}
                         transition={{ duration: 0.3, delay: 0.08 }}
@@ -302,7 +310,7 @@ export default function SavoirFairePage() {
               <FadeUp>
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
-                    src="/modelisation bloc.png"
+                    src="/photo bloc bureau des etudes.jpg"
                     alt="Bureau d'études & Architectes"
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                   />
@@ -310,8 +318,8 @@ export default function SavoirFairePage() {
               </FadeUp>
               <FadeUp delay={0.12}>
                 <h3
-                  className="uppercase font-bold mb-5"
-                  style={{ fontSize: 'clamp(13px, 1.4vw, 18px)', letterSpacing: '0.1em' }}
+                  className="font-medium mb-5"
+                  style={{ fontSize: 'clamp(16px, 2vw, 26px)', fontWeight: 400 }}
                 >
                   Bureau d'études & Architectes
                 </h3>
@@ -353,7 +361,7 @@ export default function SavoirFairePage() {
               <FadeUp className="md:order-2 order-1">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
-                    src="/Photo Realisations/chaumet-1.jpg"
+                    src="/modelisation bloc.png"
                     alt="Modélisation 3D & Maquette"
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                   />
@@ -366,7 +374,7 @@ export default function SavoirFairePage() {
               <FadeUp>
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
-                    src="/Photo Realisations/g2v-works-1.jpg"
+                    src="/Usines  Terrains.jpg"
                     alt="Usines & Terrains"
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                   />
