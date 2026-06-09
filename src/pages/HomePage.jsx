@@ -2,6 +2,7 @@ import Header from '../components/Header'
 import Hero from '../components/Hero'
 import Realisations from '../components/Realisations'
 import SavoirFaire from '../components/SavoirFaire'
+import ActualitesHighlight from '../components/ActualitesHighlight'
 import Domaines from '../components/Domaines'
 import Fondateur from '../components/Fondateur'
 import Competences from '../components/Competences'
@@ -20,6 +21,7 @@ export default function HomePage() {
         <Hero />
         <Realisations />
         <SavoirFaire />
+        <ActualitesHighlight />
         <Domaines />
         <Fondateur />
         <Competences />

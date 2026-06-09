@@ -4,7 +4,6 @@ import { motion, useInView } from 'framer-motion'
 const PANELS = [
   { img: "/Photo Page d'accueil/Bloc G2V/photo savoir faire.png",  label: 'SAVOIR-FAIRE', alt: 'Savoir-faire G2V' },
   { img: "/Photo Page d'accueil/Bloc G2V/photo ADN.png",           label: 'ADN',           alt: 'ADN G2V' },
-  { img: "/Photo Page d'accueil/Bloc G2V/Photo actualités.jpg",    label: 'ACTUALITÉS',    alt: 'Actualités G2V' },
 ]
 
 function FadeUp({ children, delay = 0 }) {
@@ -59,27 +58,10 @@ export default function SavoirFaire() {
   return (
     <section id="savoirfaire" className="section-pad">
 
-      {/* Titre + flèches */}
+      {/* Titre */}
       <FadeUp>
-        <div className="container-wide flex items-center justify-between mb-10 md:mb-14">
-          <div className="flex-1" />
-          <h2 className="text-display text-center flex-1">G2V</h2>
-          <div className="flex-1 flex justify-end items-center gap-2">
-            <button
-              onClick={() => scrollBy(-1)}
-              className="w-9 h-9 border border-[#0A0A0A] flex items-center justify-center hover:bg-[#003DA5] hover:border-[#003DA5] hover:text-white transition-colors text-sm"
-              aria-label="Précédent"
-            >
-              ‹
-            </button>
-            <button
-              onClick={() => scrollBy(1)}
-              className="w-9 h-9 border border-[#0A0A0A] flex items-center justify-center hover:bg-[#003DA5] hover:border-[#003DA5] hover:text-white transition-colors text-sm"
-              aria-label="Suivant"
-            >
-              ›
-            </button>
-          </div>
+        <div className="container-wide mb-10 md:mb-14">
+          <h2 className="text-display text-center">G2V</h2>
         </div>
       </FadeUp>
 
