@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 
 const PEOPLE = [
@@ -56,12 +57,12 @@ export default function Rencontres() {
                   <p className="text-[13px] font-light text-[#555] leading-relaxed mb-5 max-w-[280px]">
                     {p.desc}
                   </p>
-                  <a
-                    href="#"
+                  <Link
+                    to="/temoignages"
                     className="text-[11px] tracking-[0.14em] uppercase font-medium hover:text-[#003DA5] transition-colors inline-flex items-center gap-1"
                   >
                     En savoir plus <span aria-hidden="true">→</span>
-                  </a>
+                  </Link>
                 </div>
               </FadeUp>
             ))}
@@ -70,7 +71,7 @@ export default function Rencontres() {
           {/* CTA */}
           <FadeUp delay={0.2}>
             <div className="text-center mt-12">
-              <a href="#" className="btn-primary">En voir plus</a>
+              <Link to="/temoignages" className="btn-primary">En voir plus</Link>
             </div>
           </FadeUp>
         </div>

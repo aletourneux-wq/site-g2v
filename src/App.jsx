@@ -10,6 +10,8 @@ import ActualitesPage from './pages/ActualitesPage'
 import TissusDefilePage from './pages/articles/TissusDefilePage'
 import SavoirFairePage from './pages/SavoirFairePage'
 import ContactPage from './pages/ContactPage'
+import TemoignagesPage from './pages/TemoignagesPage'
+import RencontrePage from './pages/RencontrePage'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -34,6 +36,8 @@ export default function App() {
         <Route path="/actualites/tissus-grand-defile" element={<TissusDefilePage />} />
         <Route path="/savoir-faire" element={<SavoirFairePage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/temoignages" element={<TemoignagesPage />} />
+        <Route path="/temoignages/:slug" element={<RencontrePage />} />
       </Routes>
     </>
   )

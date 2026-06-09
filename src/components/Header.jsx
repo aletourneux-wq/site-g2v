@@ -111,7 +111,7 @@ export default function Header() {
       internal: false,
       dropdown: [
         { label: 'Actualités',     href: '/actualites', internal: true },
-        { label: 'Témoignages',    href: '#', internal: false },
+        { label: 'Témoignages',    href: '/temoignages', internal: true },
         { label: 'Équipe',         href: '#', internal: false },
         { label: 'Nous rejoindre', href: '#', internal: false },
       ],
