@@ -113,7 +113,7 @@ export default function Header() {
         { label: 'Actualités',     href: '/actualites', internal: true },
         { label: 'Témoignages',    href: '/temoignages', internal: true },
         { label: 'Équipe',         href: '#', internal: false },
-        { label: 'Nous rejoindre', href: '#', internal: false },
+        { label: 'Nous rejoindre', href: '/nous-rejoindre', internal: true },
       ],
     },
   ]

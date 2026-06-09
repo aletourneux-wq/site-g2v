@@ -12,6 +12,7 @@ import SavoirFairePage from './pages/SavoirFairePage'
 import ContactPage from './pages/ContactPage'
 import TemoignagesPage from './pages/TemoignagesPage'
 import RencontrePage from './pages/RencontrePage'
+import NousRejoindrePage from './pages/NousRejoindrePage'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -38,6 +39,7 @@ export default function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/temoignages" element={<TemoignagesPage />} />
         <Route path="/temoignages/:slug" element={<RencontrePage />} />
+        <Route path="/nous-rejoindre" element={<NousRejoindrePage />} />
       </Routes>
     </>
   )

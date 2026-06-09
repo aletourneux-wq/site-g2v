@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom'
 
 const QUICK_LINKS = [
   { label: 'ACTUALITÉS',    to: '/actualites' },
-  { label: 'TÉMOIGNAGES',   to: null },
+  { label: 'TÉMOIGNAGES',   to: '/temoignages' },
   { label: 'CONTACT',       to: '/contact' },
-  { label: 'NOUS REJOINDRE', to: null },
+  { label: 'NOUS REJOINDRE', to: '/nous-rejoindre' },
 ]
 const OTHER_LINKS = [
   { label: 'ADN',          to: null },
