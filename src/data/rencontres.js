@@ -27,7 +27,12 @@ export const RENCONTRES = [
     img: '/Photos temoignages/SH-1.jpg',
     bio: "C'est à l'âge de huit ans que Sarah, qui aime regarder son grand-père lorsqu'il se rase, commence à s'intéresser à la beauté au masculin. En 2000, elle ouvre son premier salon rue Condorcet à Paris. En 2013, elle partage sa passion et son expérience en publiant un livre, Barbes et Moustaches, comment les tailler au poil (éd. Larousse). Sa notoriété croissante l'encourage à ouvrir son premier flagship rue Bertin-Poirée en 2014, qu'elle confie à G2V.",
     quote: "Ma rencontre avec G2V est avant tout une rencontre humaine avec une équipe passionnée par son travail. L'excellence et la promesse tenue sont les termes qui les résument le mieux ! Animée par Vincent, gros nounours et bulldozer que rien n'arrête, nous avons su nouer un partenariat fort entre nos deux entreprises, qui nous a conduits à ouvrir ensemble quatre salons de coiffure. G2V sait prendre des décisions rapidement et faire preuve d'une véritable agilité d'esprit. Ils sont capables de transformer les contraintes en atouts. Dans un monde où l'on doit se réinventer tous les jours ou presque, ils ont toujours respecté mon identité et su la retranscrire.",
-    cta: { label: 'Découvrir nos réalisations', href: '/realisations' },
+    project: {
+      name: 'La Barbière de Paris',
+      desc: 'Retail — Salons de coiffure',
+      img: '/projets la barbiere de paris/LBDP-2.jpg',
+      href: '/realisations',
+    },
   },
   {
     slug: 'pierre-darme',
