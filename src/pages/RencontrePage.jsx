@@ -30,7 +30,7 @@ export default function RencontrePage() {
   /* Slug inconnu → retour à la liste */
   if (!rencontre) return <Navigate to="/temoignages" replace />
 
-  const { name, role, img, bio, quote, cta } = rencontre
+  const { name, role, img, bio, quote, project, cta } = rencontre
 
   return (
     <div className="font-sans bg-white text-[#0A0A0A] overflow-x-hidden">
@@ -98,8 +98,48 @@ export default function RencontrePage() {
             </blockquote>
           </FadeUp>
 
-          {/* CTA vers le projet (continuité du parcours) */}
-          {cta && (
+          {/* Projet associé — mise en avant avec visuel */}
+          {project && (
+            <FadeUp delay={0.15}>
+              <div className="mt-16 md:mt-24">
+                <p className="text-center text-[11px] tracking-[0.24em] uppercase text-[#999] mb-8">
+                  Le projet réalisé par G2V
+                </p>
+                <Link
+                  to={project.href}
+                  className="group block relative overflow-hidden aspect-[16/9] max-w-[1000px] mx-auto"
+                >
+                  <img
+                    src={project.img}
+                    alt={project.name}
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.04] transition-all duration-700"
+                  />
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+                  {/* Légende */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
+                    {project.desc && (
+                      <p className="text-white/70 text-[10px] tracking-[0.22em] uppercase mb-2">
+                        {project.desc}
+                      </p>
+                    )}
+                    <p
+                      className="text-white leading-tight mb-3"
+                      style={{ fontSize: 'clamp(22px, 3vw, 38px)', fontWeight: 300 }}
+                    >
+                      {project.name}
+                    </p>
+                    <span className="inline-flex items-center gap-1.5 text-white text-[11px] tracking-[0.18em] uppercase border-b border-white/60 pb-0.5 group-hover:border-white transition-colors">
+                      Découvrir le projet <span aria-hidden="true">→</span>
+                    </span>
+                  </div>
+                </Link>
+              </div>
+            </FadeUp>
+          )}
+
+          {/* CTA générique (rencontres sans projet associé) */}
+          {!project && cta && (
             <FadeUp delay={0.15}>
               <div className="text-center mt-14 md:mt-16">
                 <Link to={cta.href} className="btn-primary">

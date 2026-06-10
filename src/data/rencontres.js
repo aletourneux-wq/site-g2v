@@ -13,7 +13,12 @@ export const RENCONTRES = [
     img: '/EG-1.jpg',
     bio: "Jusqu'à l'âge de trente ans, Emmanuel Guiraud va faire « beaucoup de bruit et de conneries », mais il rêve de découvrir le milieu du cinéma, de la publicité et des tournages. C'est auprès de Jean-Baptiste Mondino, où il débute en servant des cafés, que le déclic se produit. En 2003, après une enrichissante expérience de producteur chez Bandits Production, Emmanuel Guiraud fonde la société de production publicitaire Soixan7e Quin5e. Aujourd'hui, il est l'heureux producteur de films, de brand content, de clips musicaux et de formats alternatifs pour les plus grandes marques et agences de publicité.",
     quote: "C'est en rendant visite à l'un de mes amis dans ses bureaux, la société ROS, que j'ai découvert G2V. J'ai été séduit par leur style et, ayant moi-même un projet de bureaux situés dans le Xe arrondissement, un lieu vieillissant et abandonné, je les ai sollicités. Amoureux de la pierre et de l'ancien, je cherchais à donner à l'endroit un côté très minéral et métallique. En confiant la réalisation de ce site à G2V, le résultat a été conforme à mes espérances. Ils ont réussi à le transformer tout en préservant son authenticité.",
-    cta: { label: 'Découvrir le projet Soixan7e Quin5e', href: '/realisations' },
+    project: {
+      name: 'Soixan7e Quin5e',
+      desc: 'Bureaux — Paris Xe',
+      img: "/Photo Page d'accueil/Bloc Nos réalisations/photo bloc nos realisations soixante-quinze.jpg",
+      href: '/realisations',
+    },
   },
   {
     slug: 'sarah-hamizi',
@@ -31,7 +36,12 @@ export const RENCONTRES = [
     img: '/Photos temoignages/PD-1.jpg',
     bio: "Formé à l'École nationale supérieure des arts et industries textiles (ENSAIT), spécialité architecture et décoration, Pierre Darme rejoint après son service militaire l'agence de l'architecte Gérard Doisy pendant treize ans, en tant que son seul élève. En 1988, Francis Holder lui confie la direction d'un bureau d'études au sein du groupe Paul. À ce jour, il compte à son actif les plans de 850 boulangeries Paul, une centaine de boutiques Ladurée et de nombreux projets immobiliers et industriels.",
     quote: "Cela fait six ans que nous travaillons avec G2V. Pour le bureau d'études que je dirige, c'est une véritable tranquillité d'esprit. G2V proposant tous les corps d'état, ils supervisent tout et nous évitons ainsi une multitude d'intervenants, de sous-traitants. C'est un échange permanent, tout est fluide avec leurs différents services et c'est essentiel pour avoir une bonne relation avec l'entreprise. Outre la réalisation de boulangeries, nous leur avons confié un immeuble de vingt-trois logements ainsi que trois appartements de très grand standing. G2V sait parfaitement s'adapter à toutes nos demandes et exigences. Côté matériaux et nouvelles techniques ou technologies, leurs propositions sont toujours les bienvenues.",
-    cta: { label: 'Découvrir nos réalisations', href: '/realisations' },
+    project: {
+      name: 'Boulangeries Paul',
+      desc: 'Retail — France',
+      img: '/Photo Realisations/paul.jpg',
+      href: '/realisations',
+    },
   },
   {
     slug: 'henri-sebaoun',
@@ -40,7 +50,12 @@ export const RENCONTRES = [
     img: '/Photos temoignages/HS-1.jpg',
     bio: "C'est après avoir usé ses premières culottes dans les allées des magasins de vêtements que tenaient ses parents qu'il se lance naturellement dans le prêt-à-porter masculin. En 1994, il signe son premier contrat de licence avec la maison Carven, qu'il rachète en 2008. Dix ans plus tard, il revend la marque pour une nouvelle aventure avec Vanessa Bruno.",
     quote: "Ma rencontre avec G2V a eu lieu en 2011, avec l'ouverture d'un magasin Carven dans le quartier de Saint-Sulpice à Paris. Avec son équipe, il nous a sauvés au-delà de nos espérances. J'ai alors confié à G2V la réalisation de cinq boutiques Carven en France, et l'accompagnement de vingt-quatre ouvertures à l'international. J'ai compris qu'ils étaient vraiment uniques lors de la construction de notre siège social. Imaginez la prouesse que ce fut en si peu de temps !",
-    cta: { label: 'Découvrir nos réalisations', href: '/realisations' },
+    project: {
+      name: 'Boutiques Carven',
+      desc: 'Retail — France & international',
+      img: '/Photo Realisations/carven.jpg',
+      href: '/realisations',
+    },
   },
   {
     slug: 'alexandre-de-betak',
@@ -67,7 +82,12 @@ export const RENCONTRES = [
     img: '/Photos temoignages/PLB-1.jpg',
     bio: "Enfant, Pauline passe son temps dans la cabane de son jardin qu'elle aménage, décore et meuble avec ses trouvailles. Devenue directrice marketing dans le cinéma, elle quitte tout en 2017 pour faire l'école Boulle, spécialité design d'espace. À trente-cinq ans, enfin dans son élément, elle monte son studio d'architecture intérieure qu'elle baptise Ett Hem, « maison » en suédois.",
     quote: "Quand on change de vie professionnelle, on prend toujours un risque. Mais je ne regrette rien car je me sens tellement bien là où je suis, de retour à mes premières amours ; l'architecture d'intérieur. Je ne fais que ça, je ne pense qu'à ça. Débutante dans l'âme, j'ai besoin de bien m'entourer. Avec G2V, je suis rassurée, encadrée – je dirais même enveloppée – et c'est un bonheur de travailler dans de telles conditions. En déléguant la partie technique à leur bureau d'études, je peux me consacrer à la partie esthétique. J'ai réalisé avec eux un appartement rue Pergolèse à Paris. Je voulais que l'escalier vole. Ils ont compris ma vision et le résultat est là. C'est fascinant de constater qu'avec eux, le mot « impossible » n'existe pas. En quarante-huit heures, ils sont capables de réaliser ce que d'autres entreprendraient en trois semaines.",
-    cta: { label: 'Découvrir le projet Pergolèse', href: '/realisations/pergolese' },
+    project: {
+      name: 'Appartement Pergolèse',
+      desc: 'Travaux — Paris XVIe',
+      img: '/Photo Realisations/pergolese.jpg',
+      href: '/realisations/pergolese',
+    },
   },
   {
     slug: 'guillaume-henry',
@@ -85,7 +105,12 @@ export const RENCONTRES = [
     img: '/Photos temoignages/FH-1.jpg',
     bio: "Né à Lille d'une longue lignée de boulangers et d'agriculteurs, Francis Holder commence à travailler avec ses parents en 1953, dans la boulangerie réputée de Lille, place de Strasbourg. Le jeune homme y passe seize heures par jour. En 1958, son père Julien Holder décède et Francis reprend la boulangerie familiale avec sa mère. Ce sportif, qui a beaucoup pratiqué la gymnastique et la course d'endurance, amateur d'art et chineur forcené, se considère comme un « industrieux qui va de l'avant sans se poser de questions ». Ce patron-souverain est l'exemple vivant de cette soif d'entreprendre et de transmettre.",
     quote: "C'est en 2013 que j'ai découvert G2V, au cours de la rénovation d'un immeuble de bureaux m'appartenant. Séduit par leur travail et leur efficacité, je décide de leur confier la rénovation d'un appartement situé boulevard Saint-Germain. Je les ai emmenés sur d'autres voies, leur ai fait voir d'autres horizons. Je leur ai fait aimer l'excellence.",
-    cta: { label: 'Découvrir nos réalisations', href: '/realisations' },
+    project: {
+      name: 'Paul & Ladurée',
+      desc: 'Retail & immobilier',
+      img: '/Photo Realisations/paul.jpg',
+      href: '/realisations',
+    },
   },
 ]
 
