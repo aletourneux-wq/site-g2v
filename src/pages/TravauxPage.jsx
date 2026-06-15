@@ -6,14 +6,14 @@ import Footer from '../components/Footer'
 import UnProjet from '../components/UnProjet'
 
 const EXPERTISES = [
-  { label: 'Retail', img: "/Photo Page d'accueil/Bloc domaines d'expertise/photo RETAIL.jpg",  alt: 'Aménagement boutique retail G2V' },
-  { label: 'Office', img: "/Photo Page d'accueil/Bloc domaines d'expertise/Photo OFFICE.jpg",  alt: 'Aménagement espace bureau G2V' },
-  { label: 'Home',   img: "/Photo Page d'accueil/Bloc domaines d'expertise/photo HOME.jpg",    alt: 'Rénovation résidentielle G2V' },
+  { label: 'Retail', img: "/domaines/retail.jpg",  alt: 'Aménagement boutique retail G2V' },
+  { label: 'Office', img: "/domaines/office.jpg",  alt: 'Aménagement espace bureau G2V' },
+  { label: 'Home',   img: "/domaines/home.jpg",    alt: 'Rénovation résidentielle G2V' },
 ]
 
 const SPLIT = [
   {
-    img: "/Photo Page d'accueil/Bloc Nos réalisations/photo bloc nos realisations soixante-quinze.jpg",
+    img: "/realisations/soixante-quinze.jpg",
     alt: 'Soixante Quinze — aménagement retail',
     tag: 'RETAIL & OFFICE',
     title: 'Des travaux façonnés selon votre cahier des charges',
@@ -24,7 +24,7 @@ const SPLIT = [
     imgLeft: true,
   },
   {
-    img: '/Photo Realisations/pergolese.jpg',
+    img: '/realisations/pergolese.jpg',
     alt: 'Pergolèse — rénovation résidentielle',
     tag: 'HOME',
     title: 'Des espaces pensés pour durer',
@@ -60,7 +60,7 @@ export default function TravauxPage() {
         {/* ── Hero ── */}
         <section className="relative h-[65vh] flex items-center justify-center overflow-hidden">
           <img
-            src="/Header Travaux.png"
+            src="/metiers/header-travaux.png"
             alt="Travaux G2V"
             className="absolute inset-0 w-full h-full object-cover"
           />

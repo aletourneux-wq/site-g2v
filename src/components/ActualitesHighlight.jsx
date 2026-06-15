@@ -19,7 +19,7 @@ const HIGHLIGHTS = [
     title: 'JPG FW26 : une nuit pour tout monter',
     excerpt:
       "Retour sur les coulisses du défilé Jean Paul Gaultier Fall/Winter 2026 — 8h de montage, 40 artisans, et un résultat à couper le souffle.",
-    img: '/Photo Realisations/JPG FW26 SHOW Photo.jpg',
+    img: '/realisations/jpg-fw26.jpg',
     date: '3 Avril 2026',
     readTime: '4 min',
     href: '/actualites',

@@ -134,7 +134,7 @@ export default function Header() {
 
         {/* Logo */}
         <Link to="/" className="flex items-center flex-shrink-0">
-          <img src="/logo-blue.png" alt="G2V" className="h-9 w-auto" />
+          <img src="/logos/logo-blue.png" alt="G2V" className="h-9 w-auto" />
         </Link>
 
         {/* Desktop nav */}

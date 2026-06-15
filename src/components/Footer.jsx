@@ -54,7 +54,7 @@ export default function Footer() {
           <div>
             <a href="/" className="flex items-center mb-6">
               <img
-                src="/logo-white.webp"
+                src="/logos/logo-white.webp"
                 alt="G2V"
                 className="h-14 w-auto"
               />

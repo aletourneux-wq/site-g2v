@@ -45,7 +45,7 @@ export default function GroupeOptions() {
         <FadeUp delay={0.15}>
           <div className="relative h-[340px] md:h-[460px] overflow-hidden group">
             <img
-              src="/Photo Page d'accueil/photo bloc options.jpg"
+              src="/accueil/groupe-options.jpg"
               alt="Groupe Options — partenaire de G2V"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
             />

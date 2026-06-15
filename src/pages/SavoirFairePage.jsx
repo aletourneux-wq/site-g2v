@@ -23,20 +23,20 @@ function FadeUp({ children, delay = 0, className = '' }) {
 
 /* ── Notre rôle — 6 univers ── */
 const UNIVERS = [
-  { label: 'Retail',             img: "/Photo Page d'accueil/Bloc domaines d'expertise/photo RETAIL.jpg" },
-  { label: 'Office',             img: "/Photo Page d'accueil/Bloc domaines d'expertise/Photo OFFICE.jpg" },
-  { label: 'Home',               img: "/Photo Page d'accueil/Bloc domaines d'expertise/photo HOME.jpg" },
-  { label: 'Fashion Show',       img: '/real-defile.png' },
-  { label: 'Showroom et Pop Up', img: '/real-popup.jpg' },
-  { label: 'Exhibition',         img: "/Photo Page d'accueil/Bloc domaines d'expertise/exhibition.webp" },
+  { label: 'Retail',             img: "/domaines/retail.jpg" },
+  { label: 'Office',             img: "/domaines/office.jpg" },
+  { label: 'Home',               img: "/domaines/home.jpg" },
+  { label: 'Fashion Show',       img: '/domaines/fashion-show.png' },
+  { label: 'Showroom et Pop Up', img: '/domaines/showroom.jpg' },
+  { label: 'Exhibition',         img: "/domaines/exhibition.webp" },
 ]
 
 /* ── Photos mosaïque compétences ── */
 const MOSAIC_IMGS = [
-  '/entreprise-generale/g2v-2.jpg',
-  '/entreprise-generale/g2v-5.jpg',
-  '/entreprise-generale/g2v-6.jpg',
-  '/entreprise-generale/g2v-8.jpg',
+  '/competences/entreprise/g2v-2.jpg',
+  '/competences/entreprise/g2v-5.jpg',
+  '/competences/entreprise/g2v-6.jpg',
+  '/competences/entreprise/g2v-8.jpg',
 ]
 
 /* ── Compétences détail ── */
@@ -44,25 +44,25 @@ const COMPETENCES = [
   {
     id: 'miroiterie',
     title: 'Miroiterie',
-    img: "/Photo Page d'accueil/Nos 5 competences/miroiterie.jpg",
+    img: "/competences/miroiterie.jpg",
     text: "Aussi ancien qu'exigeant, le verre reste la matière la plus complexe à façonner. Sa fragilité et sa rigidité à la fois demandent une maîtrise rare que nos équipes maîtrisent pour mener à bien chaque projet. Son veinage préserve l'authenticité de notre travail pour toujours.",
   },
   {
     id: 'menuiserie',
     title: 'Menuiserie',
-    img: "/Photo Page d'accueil/Nos 5 competences/menuiserie.jpg",
+    img: "/competences/menuiserie.jpg",
     text: "Polir, découper, teindre… le bois offre mille façons d'être sublime. Alliant machines performantes et gestes artisanaux, nos équipes explorent à chaque projet toutes les possibilités de cette matière. Son veinage unique reste une signature naturelle qui ne cesse de nous inspirer.",
   },
   {
     id: 'marbrerie',
     title: 'Marbrerie',
-    img: "/Photo Page d'accueil/Nos 5 competences/marbrerie.jpg",
+    img: "/competences/marbrerie.jpg",
     text: "Pierre naturelle d'exception, le marbre incarne à lui seul le luxe intemporel. Chaque veine, chaque teinte raconte une histoire unique. Nos marbriers sélectionnent et travaillent chaque dalle avec une précision chirurgicale pour sublimer vos espaces.",
   },
   {
     id: 'serrurerie',
     title: 'Serrurerie',
-    img: "/Photo Page d'accueil/Nos 5 competences/serrurerie.jpg",
+    img: "/competences/serrurerie.jpg",
     text: "Du garde-corps sur mesure à la ferronnerie d'art, le métal prend entre nos mains toutes les formes que vous imaginez. Nos serruriers allient techniques ancestrales et outils contemporains pour concevoir des pièces uniques, robustes et esthétiques.",
   },
 ]
@@ -77,7 +77,7 @@ export default function SavoirFairePage() {
         {/* ── Hero ── */}
         <section className="relative overflow-hidden" style={{ height: 'clamp(380px, 55vh, 620px)' }}>
           <img
-            src="/Photo Page d'accueil/Nos 5 competences/entreprise general premiere photo du bloc.jpg"
+            src="/competences/entreprise-generale.jpg"
             alt="G2V — Savoir-Faire"
             className="absolute inset-0 w-full h-full object-cover grayscale"
           />
@@ -310,7 +310,7 @@ export default function SavoirFairePage() {
               <FadeUp>
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
-                    src="/photo bloc bureau des etudes.jpg"
+                    src="/savoir-faire/bureau-etudes.jpg"
                     alt="Bureau d'études & Architectes"
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                   />
@@ -361,7 +361,7 @@ export default function SavoirFairePage() {
               <FadeUp className="md:order-2 order-1">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
-                    src="/modelisation bloc.png"
+                    src="/savoir-faire/modelisation-3d.png"
                     alt="Modélisation 3D & Maquette"
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                   />
@@ -374,7 +374,7 @@ export default function SavoirFairePage() {
               <FadeUp>
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
-                    src="/Usines  Terrains.jpg"
+                    src="/savoir-faire/usines-terrains.jpg"
                     alt="Usines & Terrains"
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                   />

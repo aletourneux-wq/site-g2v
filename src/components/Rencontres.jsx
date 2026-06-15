@@ -4,12 +4,12 @@ import { motion, useInView } from 'framer-motion'
 
 const PEOPLE = [
   {
-    img: '/real-adb.jpg',
+    img: '/accueil/rencontre-betak.jpg',
     name: 'Alexandre de Betak',
     desc: "Passionné de mode, d'arts et de design, Alexandre de Betak crée BUREAU BETAK en 1990 à Paris.",
   },
   {
-    img: '/real-sh.jpg',
+    img: '/accueil/rencontre-hamizi.jpg',
     name: 'Sarah Hamizi',
     desc: "Pionnière du grooming masculin, elle ouvre son flagship parisien avec G2V.",
   },

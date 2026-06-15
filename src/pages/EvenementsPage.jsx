@@ -6,14 +6,14 @@ import Footer from '../components/Footer'
 import UnProjet from '../components/UnProjet'
 
 const EXPERTISES = [
-  { label: 'Fashion Show',      img: '/real-defile.png',  alt: 'Défilé de mode G2V' },
-  { label: 'Showroom & Pop-up', img: '/real-popup.jpg',   alt: 'Showroom et pop-up éphémère G2V' },
-  { label: 'Exhibition',        img: "/Photo Page d'accueil/Bloc domaines d'expertise/exhibition.webp", alt: 'Espace exposition G2V' },
+  { label: 'Fashion Show',      img: '/domaines/fashion-show.png',  alt: 'Défilé de mode G2V' },
+  { label: 'Showroom & Pop-up', img: '/domaines/showroom.jpg',   alt: 'Showroom et pop-up éphémère G2V' },
+  { label: 'Exhibition',        img: "/domaines/exhibition.webp", alt: 'Espace exposition G2V' },
 ]
 
 const SPLIT = [
   {
-    img: '/Photo Realisations/JPG FW26 SHOW Photo.jpg',
+    img: '/realisations/jpg-fw26.jpg',
     alt: 'Jean Paul Gaultier FW26 — défilé',
     tag: 'FASHION SHOW',
     title: 'La maîtrise technique au service du spectacle',
@@ -24,7 +24,7 @@ const SPLIT = [
     imgLeft: true,
   },
   {
-    img: '/Photo Realisations/celine.jpg',
+    img: '/realisations/celine.jpg',
     alt: 'Céline — espace éphémère',
     tag: 'SHOWROOM & EXHIBITION',
     title: 'Une démarche incomparable',
@@ -60,7 +60,7 @@ export default function EvenementsPage() {
         {/* ── Hero ── */}
         <section className="relative h-[65vh] flex items-center justify-center overflow-hidden">
           <img
-            src="/Photo Page d'accueil/Photo header Evenement.png"
+            src="/metiers/hero-evenements.png"
             alt="Événements G2V"
             className="absolute inset-0 w-full h-full object-cover"
           />

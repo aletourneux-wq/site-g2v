@@ -25,7 +25,7 @@ export default function Fondateur() {
             {/* Photo */}
             <div className="flex-shrink-0 w-[200px] h-[240px] md:w-[240px] md:h-[280px] overflow-hidden group cursor-pointer">
               <img
-                src="/Photo Page d'accueil/Photo Vincent bloc equipe.jpg"
+                src="/accueil/fondateur-vincent.jpg"
                 alt="Vincent Gérard — Fondateur de G2V"
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-[1.04]"
               />

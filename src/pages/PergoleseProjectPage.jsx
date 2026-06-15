@@ -6,18 +6,18 @@ import Footer from '../components/Footer'
 
 /* ── Photos du projet ── */
 const ALL_PHOTOS = [
-  { src: '/Projet pergolese/pergolese-1.jpg',     alt: 'Pergolèse — chambre' },
-  { src: '/Projet pergolese/pergolese-2 (1).jpg', alt: 'Pergolèse — dressing bois' },
-  { src: '/Projet pergolese/pergolese-3.jpg',      alt: 'Pergolèse — cuisine' },
-  { src: '/Projet pergolese/pergolese-4.jpg',      alt: 'Pergolèse — salle de bain' },
-  { src: '/Projet pergolese/pergolese-5.jpg',      alt: 'Pergolèse — séjour' },
+  { src: '/realisations/pergolese/1.jpg',     alt: 'Pergolèse — chambre' },
+  { src: '/realisations/pergolese/2.jpg', alt: 'Pergolèse — dressing bois' },
+  { src: '/realisations/pergolese/3.jpg',      alt: 'Pergolèse — cuisine' },
+  { src: '/realisations/pergolese/4.jpg',      alt: 'Pergolèse — salle de bain' },
+  { src: '/realisations/pergolese/5.jpg',      alt: 'Pergolèse — séjour' },
 ]
 
 /* ── Autres projets ── */
 const RELATED = [
-  { id: 'montfort', label: 'MONTFORT',  img: '/Photo Realisations/montfort-3.jpg', href: '/realisations' },
-  { id: 'carven',   label: 'CARVEN',    img: '/Photo Realisations/carven.jpg',      href: '/realisations' },
-  { id: 'offwhite', label: 'OFF WHITE', img: '/Photo Realisations/offwhite.jpg',    href: '/realisations' },
+  { id: 'montfort', label: 'MONTFORT',  img: '/realisations/montfort.jpg', href: '/realisations' },
+  { id: 'carven',   label: 'CARVEN',    img: '/realisations/carven.jpg',      href: '/realisations' },
+  { id: 'offwhite', label: 'OFF WHITE', img: '/realisations/offwhite.jpg',    href: '/realisations' },
 ]
 
 /* ══════════════════════════════════════════

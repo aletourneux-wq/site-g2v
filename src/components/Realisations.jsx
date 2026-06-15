@@ -3,11 +3,11 @@ import { useNavigate, Link } from 'react-router-dom'
 import { motion, useInView, useMotionValue, useTransform, animate } from 'framer-motion'
 
 const PROJECTS = [
-  { id: 'celine',   label: 'CÉLINE',         img: "/Photo Page d'accueil/Bloc Nos réalisations/photo bloc nos realisations celine.jpg",        featured: true },
-  { id: 'pergolese',label: 'PERGOLESE',       img: "/Photo Page d'accueil/Bloc Nos réalisations/photo bloc nos realisations pergolese.jpg", href: '/realisations/pergolese' },
-  { id: 'jpg',      label: 'JPG',             img: "/Photo Page d'accueil/Bloc Nos réalisations/JPG FW26 SHOW Photo.jpg" },
-  { id: 'soixante', label: 'SOIXAN7E QUIN5E', img: "/Photo Page d'accueil/Bloc Nos réalisations/photo bloc nos realisations soixante-quinze.jpg" },
-  { id: 'lvmh',     label: 'LVMH PRIZE',      img: "/Photo Page d'accueil/Bloc Nos réalisations/photo bloc nos realisations lvmh prize.jpg" },
+  { id: 'celine',   label: 'CÉLINE',         img: "/realisations/home-celine.jpg",        featured: true },
+  { id: 'pergolese',label: 'PERGOLESE',       img: "/realisations/home-pergolese.jpg", href: '/realisations/pergolese' },
+  { id: 'jpg',      label: 'JPG',             img: "/realisations/home-jpg.jpg" },
+  { id: 'soixante', label: 'SOIXAN7E QUIN5E', img: "/realisations/soixante-quinze.jpg" },
+  { id: 'lvmh',     label: 'LVMH PRIZE',      img: "/realisations/home-lvmh.jpg" },
 ]
 
 const STATS = [

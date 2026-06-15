@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Police Gilmer (déposer les fichiers dans public/fonts/) ──
+   Dès que le fichier réel est présent, il prend automatiquement
+   la priorité sur la police d'aperçu (Outfit). */
+@font-face {
+  font-family: 'Gilmer';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/Gilmer-Light.woff2') format('woff2'),
+       url('/fonts/Gilmer-Light.woff') format('woff');
+}
+
 @layer base {
   *, *::before, *::after {
     box-sizing: border-box;
@@ -37,10 +49,11 @@
   }
 
   .text-hero {
+    font-family: 'Gilmer', 'Outfit', 'Work Sans', sans-serif;
     font-size: clamp(64px, 9vw, 118px);
     line-height: 0.92;
     letter-spacing: -0.02em;
-    font-weight: 100;
+    font-weight: 300;
   }
 
   .text-display {

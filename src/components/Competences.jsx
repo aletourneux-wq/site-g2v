@@ -4,11 +4,11 @@ import { motion, useInView } from 'framer-motion'
 
 
 const ITEMS = [
-  { img: "/Photo Page d'accueil/Nos 5 competences/entreprise general premiere photo du bloc.jpg", label: 'Entreprise Générale',   alt: 'G2V entreprise générale du bâtiment' },
-  { img: "/Photo Page d'accueil/Nos 5 competences/menuiserie.jpg",                                label: 'Menuiserie',            alt: 'Menuiserie haut de gamme G2V' },
-  { img: "/Photo Page d'accueil/Nos 5 competences/marbrerie.jpg",                                 label: 'Marbrerie',             alt: 'Marbrerie et pierre naturelle G2V' },
-  { img: "/Photo Page d'accueil/Nos 5 competences/miroiterie.jpg",                                label: 'Miroiterie',            alt: 'Miroiterie et verre sur mesure G2V' },
-  { img: "/Photo Page d'accueil/Nos 5 competences/serrurerie.jpg",                                label: 'Serrurerie & Métal',    alt: 'Serrurerie et métallerie G2V' },
+  { img: "/competences/entreprise-generale.jpg", label: 'Entreprise Générale',   alt: 'G2V entreprise générale du bâtiment' },
+  { img: "/competences/menuiserie.jpg",                                label: 'Menuiserie',            alt: 'Menuiserie haut de gamme G2V' },
+  { img: "/competences/marbrerie.jpg",                                 label: 'Marbrerie',             alt: 'Marbrerie et pierre naturelle G2V' },
+  { img: "/competences/miroiterie.jpg",                                label: 'Miroiterie',            alt: 'Miroiterie et verre sur mesure G2V' },
+  { img: "/competences/serrurerie.jpg",                                label: 'Serrurerie & Métal',    alt: 'Serrurerie et métallerie G2V' },
 ]
 
 function FadeUp({ children, delay = 0 }) {

@@ -25,7 +25,7 @@ export default function UnProjet() {
         <FadeUp>
           <div className="relative h-[400px] md:h-[520px] overflow-hidden group cursor-pointer">
             <img
-              src="/Photo Page d'accueil/photo bloc Nous contacter.png"
+              src="/accueil/un-projet-contact.png"
               alt="Équipe G2V — artisans bâtisseurs"
               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-[1.03]"
             />

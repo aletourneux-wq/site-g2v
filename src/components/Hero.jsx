@@ -27,7 +27,7 @@ export default function Hero() {
             transition={{ duration: 1.1, delay: 0.2 }}
           >
             <img
-              src="/Photo Page d'accueil/Photo header Evenement.png"
+              src="/metiers/hero-evenements.png"
               alt="Événements G2V — mise en scène et décoration"
               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-[1.04]"
             />
@@ -49,7 +49,7 @@ export default function Hero() {
             transition={{ duration: 1.1, delay: 0.4 }}
           >
             <img
-              src="/Photo Page d'accueil/Photo  header travaux.jpg"
+              src="/metiers/hero-travaux.jpg"
               alt="Travaux G2V — aménagement et rénovation haut de gamme"
               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-[1.04]"
             />

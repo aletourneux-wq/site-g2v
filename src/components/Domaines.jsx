@@ -2,12 +2,12 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const DOMAINS = [
-  { label: 'RETAIL',             img: "/Photo Page d'accueil/Bloc domaines d'expertise/photo RETAIL.jpg", alt: 'Aménagement boutique retail G2V' },
-  { label: 'OFFICE',             img: "/Photo Page d'accueil/Bloc domaines d'expertise/Photo OFFICE.jpg", alt: 'Aménagement espace bureau G2V' },
-  { label: 'HOME',               img: "/Photo Page d'accueil/Bloc domaines d'expertise/photo HOME.jpg",   alt: 'Rénovation intérieure résidentielle G2V' },
-  { label: 'FASHION SHOW',       img: '/real-defile.png',  alt: 'Scénographie défilé de mode G2V' },
-  { label: 'SHOWROOM ET POP UP', img: '/real-popup.jpg',   alt: 'Création showroom et boutique éphémère G2V' },
-  { label: 'EXHIBITION',         img: "/Photo Page d'accueil/Bloc domaines d'expertise/exhibition.webp", alt: 'Aménagement espace exposition G2V' },
+  { label: 'RETAIL',             img: "/domaines/retail.jpg", alt: 'Aménagement boutique retail G2V' },
+  { label: 'OFFICE',             img: "/domaines/office.jpg", alt: 'Aménagement espace bureau G2V' },
+  { label: 'HOME',               img: "/domaines/home.jpg",   alt: 'Rénovation intérieure résidentielle G2V' },
+  { label: 'FASHION SHOW',       img: '/domaines/fashion-show.png',  alt: 'Scénographie défilé de mode G2V' },
+  { label: 'SHOWROOM ET POP UP', img: '/domaines/showroom.jpg',   alt: 'Création showroom et boutique éphémère G2V' },
+  { label: 'EXHIBITION',         img: "/domaines/exhibition.webp", alt: 'Aménagement espace exposition G2V' },
 ]
 
 function FadeUp({ children, delay = 0 }) {

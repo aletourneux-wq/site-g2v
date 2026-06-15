@@ -2,8 +2,8 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
 const PANELS = [
-  { img: "/Photo Page d'accueil/Bloc G2V/photo savoir faire.png",  label: 'SAVOIR-FAIRE', alt: 'Savoir-faire G2V' },
-  { img: "/Photo Page d'accueil/Bloc G2V/photo ADN.png",           label: 'ADN',           alt: 'ADN G2V' },
+  { img: "/accueil/bloc-g2v-savoir-faire.png",  label: 'SAVOIR-FAIRE', alt: 'Savoir-faire G2V' },
+  { img: "/accueil/bloc-g2v-adn.png",           label: 'ADN',           alt: 'ADN G2V' },
 ]
 
 function FadeUp({ children, delay = 0 }) {

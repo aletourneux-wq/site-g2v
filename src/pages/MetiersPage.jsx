@@ -11,7 +11,7 @@ const UNIVERS = [
     label: 'Événements',
     subtitle: 'Fashion show · Showroom · Exhibition',
     desc: 'Structures temporaires, mobilier sur mesure et aménagements éphémères pour vos événements de mode et de prestige.',
-    img: "/Photo Page d'accueil/Photo header Evenement.png",
+    img: "/metiers/hero-evenements.png",
     href: '/metiers/evenements',
   },
   {
@@ -19,7 +19,7 @@ const UNIVERS = [
     label: 'Travaux',
     subtitle: 'Retail · Office · Home',
     desc: 'Rénovations complètes et aménagements permanents pour vos boutiques, bureaux et lieux de vie haut de gamme.',
-    img: "/Photo Page d'accueil/Photo  header travaux.jpg",
+    img: "/metiers/hero-travaux.jpg",
     href: '/metiers/travaux',
   },
 ]
@@ -49,7 +49,7 @@ export default function MetiersPage() {
         {/* ── Hero ── */}
         <section className="relative h-[65vh] flex items-center justify-center overflow-hidden">
           <img
-            src="/Photo Realisations/g2v-works-1.jpg"
+            src="/realisations/g2v-works.jpg"
             alt="G2V Métiers"
             className="absolute inset-0 w-full h-full object-cover"
           />

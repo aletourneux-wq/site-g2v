@@ -7,24 +7,24 @@ import Footer from '../components/Footer'
 /* ── Projets ── */
 const PROJECTS = [
   /* Événementiel */
-  { id: 'dior',       label: 'DÉFILÉ DIOR',          category: 'Événementiel', img: '/Photo Realisations/dior-3.jpg'   },
-  { id: 'celine',     label: 'CÉLINE',               category: 'Événementiel', img: '/Photo Realisations/celine.jpg'   },
-  { id: 'tommy-now',  label: 'TOMMY NOW',            category: 'Événementiel', img: '/Photo Realisations/tommy-now.jpg'},
-  { id: 'jpg',        label: 'JEAN PAUL GAULTIER',   category: 'Événementiel', img: '/Photo Realisations/JPG FW26 SHOW Photo.jpg' },
-  { id: 'chaumet',    label: 'LES MONDES DE CHAUMET', category: 'Événementiel', img: '/Photo Realisations/chaumet-1.jpg'},
-  { id: 'lvmh',       label: 'LVMH PRIZE',           category: 'Événementiel', img: '/Photo Realisations/lvmh-1.jpg'  },
-  { id: 'g2v',        label: 'G2V',                  category: 'Événementiel', img: '/Photo Realisations/g2v-works-1.jpg'},
-  { id: 'acne',       label: 'ACNE STUDIO',          category: 'Événementiel', img: '/Photo Realisations/acne.png'    },
-  { id: 'offwhite',   label: 'OFF WHITE',            category: 'Événementiel', img: '/Photo Realisations/offwhite.jpg'},
+  { id: 'dior',       label: 'DÉFILÉ DIOR',          category: 'Événementiel', img: '/realisations/dior.jpg'   },
+  { id: 'celine',     label: 'CÉLINE',               category: 'Événementiel', img: '/realisations/celine.jpg'   },
+  { id: 'tommy-now',  label: 'TOMMY NOW',            category: 'Événementiel', img: '/realisations/tommy-now.jpg'},
+  { id: 'jpg',        label: 'JEAN PAUL GAULTIER',   category: 'Événementiel', img: '/realisations/jpg-fw26.jpg' },
+  { id: 'chaumet',    label: 'LES MONDES DE CHAUMET', category: 'Événementiel', img: '/realisations/chaumet.jpg'},
+  { id: 'lvmh',       label: 'LVMH PRIZE',           category: 'Événementiel', img: '/realisations/lvmh.jpg'  },
+  { id: 'g2v',        label: 'G2V',                  category: 'Événementiel', img: '/realisations/g2v-works.jpg'},
+  { id: 'acne',       label: 'ACNE STUDIO',          category: 'Événementiel', img: '/realisations/acne.png'    },
+  { id: 'offwhite',   label: 'OFF WHITE',            category: 'Événementiel', img: '/realisations/offwhite.jpg'},
   /* Travaux */
-  { id: 'pergolese',  label: 'PERGOLESE',            category: 'Travaux',      img: '/Photo Realisations/pergolese.jpg',  href: '/realisations/pergolese' },
-  { id: 'le-marais',  label: 'LE MARAIS',            category: 'Travaux',      img: '/Photo Realisations/le-marais.jpg' },
-  { id: 'montfort',   label: 'MONTFORT',             category: 'Travaux',      img: '/Photo Realisations/montfort-3.jpg'},
-  { id: 'carven',     label: 'CARVEN',               category: 'Travaux',      img: '/Photo Realisations/carven.jpg'    },
-  { id: 'messika',    label: 'MESSIKA',              category: 'Travaux',      img: '/Photo Realisations/messika.png'   },
-  { id: 'cartier',    label: 'CARTIER',              category: 'Travaux',      img: '/Photo Realisations/cartier.jpg'   },
-  { id: 'paul',       label: 'PAUL',                 category: 'Travaux',      img: '/Photo Realisations/paul.jpg'      },
-  { id: 'soixante',   label: 'SOIXAN7E QUIN5E',      category: 'Travaux',      img: "/Photo Page d'accueil/Bloc Nos réalisations/photo bloc nos realisations soixante-quinze.jpg" },
+  { id: 'pergolese',  label: 'PERGOLESE',            category: 'Travaux',      img: '/realisations/pergolese.jpg',  href: '/realisations/pergolese' },
+  { id: 'le-marais',  label: 'LE MARAIS',            category: 'Travaux',      img: '/realisations/le-marais.jpg' },
+  { id: 'montfort',   label: 'MONTFORT',             category: 'Travaux',      img: '/realisations/montfort.jpg'},
+  { id: 'carven',     label: 'CARVEN',               category: 'Travaux',      img: '/realisations/carven.jpg'    },
+  { id: 'messika',    label: 'MESSIKA',              category: 'Travaux',      img: '/realisations/messika.png'   },
+  { id: 'cartier',    label: 'CARTIER',              category: 'Travaux',      img: '/realisations/cartier.jpg'   },
+  { id: 'paul',       label: 'PAUL',                 category: 'Travaux',      img: '/realisations/paul.jpg'      },
+  { id: 'soixante',   label: 'SOIXAN7E QUIN5E',      category: 'Travaux',      img: "/realisations/soixante-quinze.jpg" },
 ]
 
 const FILTERS = [
