@@ -1,11 +1,12 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 
 const DOMAINS = [
   { label: 'RETAIL',             img: "/domaines/retail.jpg", alt: 'Aménagement boutique retail G2V' },
   { label: 'OFFICE',             img: "/domaines/office.jpg", alt: 'Aménagement espace bureau G2V' },
   { label: 'HOME',               img: "/domaines/home.jpg",   alt: 'Rénovation intérieure résidentielle G2V' },
-  { label: 'FASHION SHOW',       img: '/domaines/fashion-show.png',  alt: 'Scénographie défilé de mode G2V' },
+  { label: 'FASHION SHOW',       img: '/domaines/fashion-show.png',  alt: 'Scénographie défilé de mode G2V', slug: 'fashion-show' },
   { label: 'SHOWROOM ET POP UP', img: '/domaines/showroom.jpg',   alt: 'Création showroom et boutique éphémère G2V' },
   { label: 'EXHIBITION',         img: "/domaines/exhibition.webp", alt: 'Aménagement espace exposition G2V' },
 ]
@@ -38,23 +39,27 @@ export default function Domaines() {
 
         {/* 3×2 grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
-          {DOMAINS.map((d, i) => (
-            <FadeUp key={d.label} delay={i * 0.07}>
-              <div className="relative overflow-hidden group cursor-pointer aspect-square">
-                <img
-                  src={d.img}
-                  alt={d.alt}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-[1.05]"
-                />
-                <div className="absolute inset-0 bg-black/15 group-hover:bg-black/30 transition-colors duration-300" />
-                <div className="absolute bottom-0 inset-x-0 flex justify-center pb-4">
-                  <span className="text-white text-[10px] tracking-[0.22em] font-medium uppercase">
-                    {d.label}
-                  </span>
-                </div>
-              </div>
-            </FadeUp>
-          ))}
+          {DOMAINS.map((d, i) => {
+            const Wrapper = d.slug ? Link : 'div'
+            const wrapperProps = d.slug ? { to: `/domaines/${d.slug}` } : {}
+            return (
+              <FadeUp key={d.label} delay={i * 0.07}>
+                <Wrapper {...wrapperProps} className="relative block overflow-hidden group cursor-pointer aspect-square">
+                  <img
+                    src={d.img}
+                    alt={d.alt}
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-[1.05]"
+                  />
+                  <div className="absolute inset-0 bg-black/15 group-hover:bg-black/30 transition-colors duration-300" />
+                  <div className="absolute bottom-0 inset-x-0 flex justify-center pb-4">
+                    <span className="text-white text-[10px] tracking-[0.22em] font-medium uppercase">
+                      {d.label}
+                    </span>
+                  </div>
+                </Wrapper>
+              </FadeUp>
+            )
+          })}
         </div>
       </div>
     </section>
