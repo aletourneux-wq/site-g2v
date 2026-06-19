@@ -13,8 +13,10 @@ const EXPERTISES = [
 
 const SPLIT = [
   {
-    img: "/realisations/soixante-quinze.jpg",
-    alt: 'Soixante Quinze — aménagement retail',
+    img: "/realisations/paul-les-tortues/1.jpg",
+    alt: 'Paul, les Tortues — aménagement retail',
+    href: '/realisations/paul-les-tortues',
+    projectName: 'Paul, les Tortues',
     tag: 'RETAIL & OFFICE',
     title: 'Des travaux façonnés selon votre cahier des charges',
     body: [
@@ -26,6 +28,8 @@ const SPLIT = [
   {
     img: '/realisations/pergolese.jpg',
     alt: 'Pergolèse — rénovation résidentielle',
+    href: '/realisations/pergolese',
+    projectName: 'Pergolèse',
     tag: 'HOME',
     title: 'Des espaces pensés pour durer',
     body: [
@@ -107,16 +111,39 @@ export default function TravauxPage() {
         {SPLIT.map((s, i) => (
           <FadeUp key={i}>
             <section className="container-wide mb-16 md:mb-24 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
-              {/* Image */}
-              <div className={`overflow-hidden ${!s.imgLeft ? 'md:order-2' : ''}`}>
-                <motion.img
-                  src={s.img}
-                  alt={s.alt}
-                  className="w-full h-[320px] md:h-[460px] object-cover"
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                />
-              </div>
+              {/* Image — cliquable vers le projet si href */}
+              {s.href ? (
+                <Link
+                  to={s.href}
+                  className={`relative block overflow-hidden group ${!s.imgLeft ? 'md:order-2' : ''}`}
+                >
+                  <img
+                    src={s.img}
+                    alt={s.alt}
+                    className="w-full h-[320px] md:h-[460px] object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.04] transition-all duration-700 ease-out"
+                  />
+                  {/* Dégradé + nom projet + En savoir plus (laisse passer le survol) */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent pointer-events-none" />
+                  <div className="absolute bottom-5 left-5 right-5 pointer-events-none">
+                    <p className="text-white text-[12px] tracking-[0.22em] uppercase font-medium">
+                      {s.projectName}
+                    </p>
+                    <span className="block text-white/0 group-hover:text-white/80 text-[10px] tracking-[0.16em] uppercase mt-1.5 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
+                      En savoir plus →
+                    </span>
+                  </div>
+                </Link>
+              ) : (
+                <div className={`overflow-hidden ${!s.imgLeft ? 'md:order-2' : ''}`}>
+                  <motion.img
+                    src={s.img}
+                    alt={s.alt}
+                    className="w-full h-[320px] md:h-[460px] object-cover"
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  />
+                </div>
+              )}
               {/* Texte */}
               <div className={`${!s.imgLeft ? 'md:order-1 md:pr-8' : 'md:pl-8'}`}>
                 <p className="text-[10px] tracking-[0.28em] uppercase text-[#003DA5] mb-5">{s.tag}</p>

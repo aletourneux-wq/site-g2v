@@ -14,6 +14,8 @@ import TemoignagesPage from './pages/TemoignagesPage'
 import RencontrePage from './pages/RencontrePage'
 import NousRejoindrePage from './pages/NousRejoindrePage'
 import DomainePage from './pages/DomainePage'
+import PaulTortuesPage from './pages/PaulTortuesPage'
+import ProjetPage from './pages/ProjetPage'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -31,6 +33,8 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/realisations" element={<RealisationsPage />} />
         <Route path="/realisations/pergolese" element={<PergoleseProjectPage />} />
+        <Route path="/realisations/paul-les-tortues" element={<PaulTortuesPage />} />
+        <Route path="/realisations/:slug" element={<ProjetPage />} />
         <Route path="/metiers" element={<MetiersPage />} />
         <Route path="/metiers/evenements" element={<EvenementsPage />} />
         <Route path="/metiers/travaux" element={<TravauxPage />} />

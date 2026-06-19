@@ -23,7 +23,7 @@ const PROJECTS = [
   { id: 'carven',     label: 'CARVEN',               category: 'Travaux',      img: '/realisations/carven.jpg'    },
   { id: 'messika',    label: 'MESSIKA',              category: 'Travaux',      img: '/realisations/messika.png'   },
   { id: 'cartier',    label: 'CARTIER',              category: 'Travaux',      img: '/realisations/cartier.jpg'   },
-  { id: 'paul',       label: 'PAUL',                 category: 'Travaux',      img: '/realisations/paul.jpg'      },
+  { id: 'paul',       label: 'PAUL, LES TORTUES',    category: 'Travaux',      img: '/realisations/paul-les-tortues/1.jpg', href: '/realisations/paul-les-tortues' },
   { id: 'soixante',   label: 'SOIXAN7E QUIN5E',      category: 'Travaux',      img: "/realisations/soixante-quinze.jpg" },
 ]
 

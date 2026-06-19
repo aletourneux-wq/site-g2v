@@ -13,8 +13,10 @@ const EXPERTISES = [
 
 const SPLIT = [
   {
-    img: '/realisations/jpg-fw26.jpg',
-    alt: 'Jean Paul Gaultier FW26 — défilé',
+    img: '/realisations/defile-dior/1.jpg',
+    alt: 'Défilé Dior — enseignes lumineuses',
+    href: '/realisations/defile-dior',
+    projectName: 'Défilé Dior',
     tag: 'FASHION SHOW',
     title: 'La maîtrise technique au service du spectacle',
     body: [
@@ -24,8 +26,10 @@ const SPLIT = [
     imgLeft: true,
   },
   {
-    img: '/realisations/celine.jpg',
-    alt: 'Céline — espace éphémère',
+    img: '/realisations/clash-de-cartier/5.jpg',
+    alt: 'Clash de Cartier — brasserie éphémère',
+    href: '/realisations/clash-de-cartier',
+    projectName: 'Clash de Cartier',
     tag: 'SHOWROOM & EXHIBITION',
     title: 'Une démarche incomparable',
     body: [
@@ -108,16 +112,38 @@ export default function EvenementsPage() {
         {SPLIT.map((s, i) => (
           <FadeUp key={i}>
             <section className="container-wide mb-16 md:mb-24 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
-              {/* Image */}
-              <div className={`overflow-hidden ${!s.imgLeft ? 'md:order-2' : ''}`}>
-                <motion.img
-                  src={s.img}
-                  alt={s.alt}
-                  className="w-full h-[320px] md:h-[460px] object-cover"
-                  whileHover={{ scale: 1.03 }}
-                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                />
-              </div>
+              {/* Image — cliquable vers le projet si href */}
+              {s.href ? (
+                <Link
+                  to={s.href}
+                  className={`relative block overflow-hidden group ${!s.imgLeft ? 'md:order-2' : ''}`}
+                >
+                  <img
+                    src={s.img}
+                    alt={s.alt}
+                    className="w-full h-[320px] md:h-[460px] object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.04] transition-all duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent pointer-events-none" />
+                  <div className="absolute bottom-5 left-5 right-5 pointer-events-none">
+                    <p className="text-white text-[12px] tracking-[0.22em] uppercase font-medium">
+                      {s.projectName}
+                    </p>
+                    <span className="block text-white/0 group-hover:text-white/80 text-[10px] tracking-[0.16em] uppercase mt-1.5 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
+                      En savoir plus →
+                    </span>
+                  </div>
+                </Link>
+              ) : (
+                <div className={`overflow-hidden ${!s.imgLeft ? 'md:order-2' : ''}`}>
+                  <motion.img
+                    src={s.img}
+                    alt={s.alt}
+                    className="w-full h-[320px] md:h-[460px] object-cover"
+                    whileHover={{ scale: 1.03 }}
+                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  />
+                </div>
+              )}
               {/* Texte */}
               <div className={`${!s.imgLeft ? 'md:order-1 md:pr-8' : 'md:pl-8'}`}>
                 <p className="text-[10px] tracking-[0.28em] uppercase text-[#003DA5] mb-5">{s.tag}</p>
