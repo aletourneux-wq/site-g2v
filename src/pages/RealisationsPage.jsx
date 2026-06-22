@@ -7,24 +7,18 @@ import Footer from '../components/Footer'
 /* ── Projets ── */
 const PROJECTS = [
   /* Événementiel */
-  { id: 'dior',       label: 'DÉFILÉ DIOR',          category: 'Événementiel', img: '/realisations/dior.jpg'   },
-  { id: 'celine',     label: 'CÉLINE',               category: 'Événementiel', img: '/realisations/celine.jpg'   },
-  { id: 'tommy-now',  label: 'TOMMY NOW',            category: 'Événementiel', img: '/realisations/tommy-now.jpg'},
-  { id: 'jpg',        label: 'JEAN PAUL GAULTIER',   category: 'Événementiel', img: '/realisations/jpg-fw26.jpg' },
-  { id: 'chaumet',    label: 'LES MONDES DE CHAUMET', category: 'Événementiel', img: '/realisations/chaumet.jpg'},
-  { id: 'lvmh',       label: 'LVMH PRIZE',           category: 'Événementiel', img: '/realisations/lvmh.jpg'  },
-  { id: 'g2v',        label: 'G2V',                  category: 'Événementiel', img: '/realisations/g2v-works.jpg'},
-  { id: 'acne',       label: 'ACNE STUDIO',          category: 'Événementiel', img: '/realisations/acne.png'    },
-  { id: 'offwhite',   label: 'OFF WHITE',            category: 'Événementiel', img: '/realisations/offwhite.jpg'},
+  { id: 'tommy-now',  label: 'TOMMY NOW',                   category: 'Événementiel', img: '/realisations/tommy-now.jpg' },
+  { id: 'lancome',    label: 'LANCÔME x PROENZA SCHOULER',  category: 'Événementiel', img: '/realisations/lancome-proenza/1.jpg' },
+  { id: 'chaumet',    label: 'LES MONDES DE CHAUMET',       category: 'Événementiel', img: '/realisations/chaumet.jpg' },
+  { id: 'dior',       label: 'DÉFILÉ DIOR',                 category: 'Événementiel', img: '/realisations/defile-dior/1.jpg', href: '/realisations/defile-dior' },
+  { id: 'louboutin',  label: "LOUBOUTIN : L'EXHIBITION[NISTE]", category: 'Événementiel', img: '/realisations/louboutin/1.jpg' },
+  { id: 'cartier',    label: 'CLASH DE CARTIER',            category: 'Événementiel', img: '/realisations/clash-de-cartier/5.jpg', href: '/realisations/clash-de-cartier' },
   /* Travaux */
-  { id: 'pergolese',  label: 'PERGOLESE',            category: 'Travaux',      img: '/realisations/pergolese.jpg',  href: '/realisations/pergolese' },
-  { id: 'le-marais',  label: 'LE MARAIS',            category: 'Travaux',      img: '/realisations/le-marais.jpg' },
-  { id: 'montfort',   label: 'MONTFORT',             category: 'Travaux',      img: '/realisations/montfort.jpg'},
-  { id: 'carven',     label: 'CARVEN',               category: 'Travaux',      img: '/realisations/carven.jpg'    },
-  { id: 'messika',    label: 'MESSIKA',              category: 'Travaux',      img: '/realisations/messika.png'   },
-  { id: 'cartier',    label: 'CARTIER',              category: 'Travaux',      img: '/realisations/cartier.jpg'   },
-  { id: 'paul',       label: 'PAUL, LES TORTUES',    category: 'Travaux',      img: '/realisations/paul-les-tortues/1.jpg', href: '/realisations/paul-les-tortues' },
-  { id: 'soixante',   label: 'SOIXAN7E QUIN5E',      category: 'Travaux',      img: "/realisations/soixante-quinze.jpg" },
+  { id: 'paul',       label: 'PAUL, LES TORTUES',           category: 'Travaux',      img: '/realisations/paul-les-tortues/1.jpg', href: '/realisations/paul-les-tortues' },
+  { id: 'le-marais',  label: 'LE MARAIS',                   category: 'Travaux',      img: '/realisations/le-marais.jpg' },
+  { id: 'pergolese',  label: 'PERGOLÈSE',                   category: 'Travaux',      img: '/realisations/pergolese.jpg',  href: '/realisations/pergolese' },
+  { id: 'montfort',   label: 'MONTFORT',                    category: 'Travaux',      img: '/realisations/montfort.jpg' },
+  { id: 'saint-germain', label: 'SAINT-GERMAIN',           category: 'Travaux',      img: '/realisations/saint-germain/1.jpg' },
 ]
 
 const FILTERS = [

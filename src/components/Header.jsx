@@ -107,8 +107,8 @@ export default function Header() {
     },
     {
       label: 'ADN',
-      href: onHome ? '#adn' : '/#adn',
-      internal: false,
+      href: '/adn',
+      internal: true,
       dropdown: [
         { label: 'Actualités',     href: '/actualites', internal: true },
         { label: 'Rencontres',     href: '/temoignages', internal: true },

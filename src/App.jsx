@@ -16,6 +16,7 @@ import NousRejoindrePage from './pages/NousRejoindrePage'
 import DomainePage from './pages/DomainePage'
 import PaulTortuesPage from './pages/PaulTortuesPage'
 import ProjetPage from './pages/ProjetPage'
+import AdnPage from './pages/AdnPage'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -46,6 +47,7 @@ export default function App() {
         <Route path="/temoignages/:slug" element={<RencontrePage />} />
         <Route path="/nous-rejoindre" element={<NousRejoindrePage />} />
         <Route path="/domaines/:slug" element={<DomainePage />} />
+        <Route path="/adn" element={<AdnPage />} />
       </Routes>
     </>
   )
