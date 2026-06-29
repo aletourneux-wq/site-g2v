@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
+import { useLang } from '../i18n/LanguageContext'
 
 /* ── 1 à 2 actualités mises en avant ── */
 const HIGHLIGHTS = [
@@ -41,7 +42,7 @@ function FadeUp({ children, delay = 0 }) {
   )
 }
 
-function ActualiteCard({ article, index }) {
+function ActualiteCard({ article, index, t }) {
   return (
     <FadeUp delay={index * 0.12}>
       <Link to={article.href} className="block group">
@@ -67,10 +68,10 @@ function ActualiteCard({ article, index }) {
         <div className="flex items-center gap-4 mb-6 text-[10px] tracking-[0.15em] uppercase text-[#999]">
           <span>{article.date}</span>
           <span>·</span>
-          <span>{article.readTime} de lecture</span>
+          <span>{article.readTime}</span>
         </div>
         <span className="text-[11px] tracking-[0.18em] uppercase border-b border-[#0A0A0A] pb-0.5 group-hover:text-[#003DA5] group-hover:border-[#003DA5] transition-colors duration-200">
-          Lire l'article →
+          {t('actualites.read')}
         </span>
       </Link>
     </FadeUp>
@@ -78,6 +79,7 @@ function ActualiteCard({ article, index }) {
 }
 
 export default function ActualitesHighlight() {
+  const { t } = useLang()
   return (
     <section className="section-pad bg-white">
       <div className="container-wide">
@@ -86,16 +88,16 @@ export default function ActualitesHighlight() {
         <FadeUp>
           <div className="text-center mb-12 md:mb-16">
             <p className="text-[11px] tracking-[0.28em] uppercase text-[#999] mb-4">
-              G2V — Journal
+              {t('actualites.eyebrow')}
             </p>
-            <h2 className="text-display">Actualités</h2>
+            <h2 className="text-display">{t('actualites.title')}</h2>
           </div>
         </FadeUp>
 
         {/* Bloc 2 sections (gauche / droite) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
           {HIGHLIGHTS.map((article, i) => (
-            <ActualiteCard key={article.title} article={article} index={i} />
+            <ActualiteCard key={article.title} article={article} index={i} t={t} />
           ))}
         </div>
 
@@ -103,7 +105,7 @@ export default function ActualitesHighlight() {
         <FadeUp delay={0.2}>
           <div className="text-center mt-14 md:mt-16">
             <Link to="/actualites" className="btn-primary">
-              Toutes les actualités
+              {t('actualites.cta')}
             </Link>
           </div>
         </FadeUp>

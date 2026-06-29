@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
+import { useLang } from '../i18n/LanguageContext'
 
 const DOMAINS = [
   { label: 'RETAIL',             img: "/domaines/retail.jpg", alt: 'Aménagement boutique retail G2V' },
@@ -27,13 +28,14 @@ function FadeUp({ children, delay = 0 }) {
 }
 
 export default function Domaines() {
+  const { t } = useLang()
   return (
     <section id="metiers" className="section-pad bg-white">
       <div className="container-wide">
         {/* Heading */}
         <FadeUp>
           <h2 className="text-display text-center mb-12 md:mb-16">
-            Nos 6 domaines d'expertise
+            {t('domaines.title')}
           </h2>
         </FadeUp>
 

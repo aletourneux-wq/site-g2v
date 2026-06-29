@@ -1,18 +1,11 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
+import { useLang } from '../i18n/LanguageContext'
 
 const PEOPLE = [
-  {
-    img: '/accueil/rencontre-betak.jpg',
-    name: 'Alexandre de Betak',
-    desc: "Passionné de mode, d'arts et de design, Alexandre de Betak crée BUREAU BETAK en 1990 à Paris.",
-  },
-  {
-    img: '/accueil/rencontre-hamizi.jpg',
-    name: 'Sarah Hamizi',
-    desc: "Pionnière du grooming masculin, elle ouvre son flagship parisien avec G2V.",
-  },
+  { img: '/accueil/rencontre-betak.jpg',  name: 'Alexandre de Betak', key: 'betak' },
+  { img: '/accueil/rencontre-hamizi.jpg', name: 'Sarah Hamizi',       key: 'hamizi' },
 ]
 
 function FadeUp({ children, delay = 0 }) {
@@ -31,12 +24,13 @@ function FadeUp({ children, delay = 0 }) {
 }
 
 export default function Rencontres() {
+  const { t } = useLang()
   return (
     <section className="section-pad bg-white">
       <div className="container-wide">
         {/* Heading */}
         <FadeUp>
-          <h2 className="text-display mb-12 md:mb-16">Rencontres</h2>
+          <h2 className="text-display mb-12 md:mb-16">{t('rencontres.title')}</h2>
         </FadeUp>
 
         {/* Cards */}
@@ -55,13 +49,13 @@ export default function Rencontres() {
                   </div>
                   <h3 className="text-[16px] font-semibold mb-2">{p.name}</h3>
                   <p className="text-[13px] font-light text-[#555] leading-relaxed mb-5 max-w-[280px]">
-                    {p.desc}
+                    {t(`rencontres.${p.key}`)}
                   </p>
                   <Link
                     to="/temoignages"
                     className="text-[11px] tracking-[0.14em] uppercase font-medium hover:text-[#003DA5] transition-colors inline-flex items-center gap-1"
                   >
-                    En savoir plus <span aria-hidden="true">→</span>
+                    {t('rencontres.more')}
                   </Link>
                 </div>
               </FadeUp>
@@ -71,7 +65,7 @@ export default function Rencontres() {
           {/* CTA */}
           <FadeUp delay={0.2}>
             <div className="text-center mt-12">
-              <Link to="/temoignages" className="btn-primary">En voir plus</Link>
+              <Link to="/temoignages" className="btn-primary">{t('rencontres.cta')}</Link>
             </div>
           </FadeUp>
         </div>

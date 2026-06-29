@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import UnProjet from '../components/UnProjet'
+import { useLang } from '../i18n/LanguageContext'
 
 const EXPERTISES = [
   { label: 'Retail', img: "/domaines/retail.jpg",  alt: 'Aménagement boutique retail G2V' },
@@ -14,27 +15,20 @@ const EXPERTISES = [
 const SPLIT = [
   {
     img: "/realisations/paul-les-tortues/1.jpg",
-    alt: 'Paul, les Tortues — aménagement retail',
     href: '/realisations/paul-les-tortues',
     projectName: 'Paul, les Tortues',
-    tag: 'RETAIL & OFFICE',
-    title: 'Des travaux façonnés selon votre cahier des charges',
-    body: [
-      "Nous proposons de nombreuses gammes de matières, renouvelées dans le respect des normes de sécurité et des exigences esthétiques de chaque projet.",
-      "Chaque chantier est géré avec la même rigueur, qu'il s'agisse d'une boutique de luxe, d'un espace de bureaux ou d'un aménagement résidentiel.",
-    ],
+    tagKey: 'travauxPage.block1Tag',
+    titleKey: 'travauxPage.block1Title',
+    bodyKeys: ['travauxPage.block1Body1', 'travauxPage.block1Body2'],
     imgLeft: true,
   },
   {
     img: '/realisations/pergolese.jpg',
-    alt: 'Pergolèse — rénovation résidentielle',
     href: '/realisations/pergolese',
     projectName: 'Pergolèse',
-    tag: 'HOME',
-    title: 'Des espaces pensés pour durer',
-    body: [
-      "De la rénovation complète à l'aménagement sur mesure, G2V intervient sur tous types de chantiers avec la même exigence de qualité et le même respect des délais.",
-    ],
+    tagKey: 'travauxPage.block2Tag',
+    titleKey: 'travauxPage.block2Title',
+    bodyKeys: ['travauxPage.block2Body1'],
     imgLeft: false,
   },
 ]
@@ -55,6 +49,7 @@ function FadeUp({ children, delay = 0 }) {
 }
 
 export default function TravauxPage() {
+  const { t } = useLang()
   return (
     <div className="font-sans bg-white text-[#0A0A0A] overflow-x-hidden">
       <Header />
@@ -76,8 +71,8 @@ export default function TravauxPage() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
             >
-              <Link to="/metiers" className="hover:text-white transition-colors duration-200">Métiers</Link>
-              <span className="mx-2">·</span>Travaux
+              <Link to="/metiers" className="hover:text-white transition-colors duration-200">{t('metiersBreadcrumb')}</Link>
+              <span className="mx-2">·</span>{t('travauxPage.title')}
             </motion.p>
             <motion.h1
               className="uppercase text-white"
@@ -86,7 +81,7 @@ export default function TravauxPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              Travaux
+              {t('travauxPage.title')}
             </motion.h1>
           </div>
         </section>
@@ -96,12 +91,10 @@ export default function TravauxPage() {
           <FadeUp>
             <div className="container-wide max-w-[680px] text-center">
               <p className="text-[14px] text-[#555] font-light leading-relaxed mb-4">
-                Nous travaillons sur des projets et réalisons des chantiers permanents en respectant
-                les contraintes techniques et spécificités de chaque lieu où nous intervenons.
+                {t('travauxPage.intro1')}
               </p>
               <p className="text-[14px] text-[#555] font-light leading-relaxed">
-                Nos travaux sont faits selon votre cahier des charges — nous proposons de nombreuses
-                gammes de matières dans le respect des normes de sécurité.
+                {t('travauxPage.intro2')}
               </p>
             </div>
           </FadeUp>
@@ -119,7 +112,7 @@ export default function TravauxPage() {
                 >
                   <img
                     src={s.img}
-                    alt={s.alt}
+                    alt={s.projectName}
                     className="w-full h-[320px] md:h-[460px] object-cover grayscale group-hover:grayscale-0 group-hover:scale-[1.04] transition-all duration-700 ease-out"
                   />
                   {/* Dégradé + nom projet + En savoir plus (laisse passer le survol) */}
@@ -129,7 +122,7 @@ export default function TravauxPage() {
                       {s.projectName}
                     </p>
                     <span className="block text-white/0 group-hover:text-white/80 text-[10px] tracking-[0.16em] uppercase mt-1.5 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
-                      En savoir plus →
+                      {t('common.more')}
                     </span>
                   </div>
                 </Link>
@@ -137,7 +130,7 @@ export default function TravauxPage() {
                 <div className={`overflow-hidden ${!s.imgLeft ? 'md:order-2' : ''}`}>
                   <motion.img
                     src={s.img}
-                    alt={s.alt}
+                    alt={s.projectName}
                     className="w-full h-[320px] md:h-[460px] object-cover"
                     whileHover={{ scale: 1.03 }}
                     transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -146,15 +139,15 @@ export default function TravauxPage() {
               )}
               {/* Texte */}
               <div className={`${!s.imgLeft ? 'md:order-1 md:pr-8' : 'md:pl-8'}`}>
-                <p className="text-[10px] tracking-[0.28em] uppercase text-[#003DA5] mb-5">{s.tag}</p>
+                <p className="text-[10px] tracking-[0.28em] uppercase text-[#003DA5] mb-5">{t(s.tagKey)}</p>
                 <h3
                   className="leading-tight mb-6"
                   style={{ fontSize: 'clamp(22px, 2.8vw, 34px)', fontWeight: 300, letterSpacing: '-0.01em' }}
                 >
-                  {s.title}
+                  {t(s.titleKey)}
                 </h3>
-                {s.body.map((p, j) => (
-                  <p key={j} className="text-[14px] text-[#555] font-light leading-relaxed mb-3">{p}</p>
+                {s.bodyKeys.map((bk, j) => (
+                  <p key={j} className="text-[14px] text-[#555] font-light leading-relaxed mb-3">{t(bk)}</p>
                 ))}
               </div>
             </section>
@@ -165,7 +158,7 @@ export default function TravauxPage() {
         <section className="container-wide mb-20 md:mb-28">
           <FadeUp>
             <p className="text-center text-[10px] tracking-[0.28em] uppercase text-[#999] mb-10">
-              Explorez nos domaines d'expertise
+              {t('expertiseTitle')}
             </p>
           </FadeUp>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">

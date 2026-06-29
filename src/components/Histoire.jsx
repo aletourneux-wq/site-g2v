@@ -1,32 +1,13 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { useLang } from '../i18n/LanguageContext'
 
 const MILESTONES = [
-  {
-    year: '1998',
-    label: 'Création',
-    desc: 'Vincent Gérard fonde la société',
-  },
-  {
-    year: '2017',
-    label: 'Exploit',
-    desc: 'La boutique Colette devient, en une nuit, celle de YSL',
-  },
-  {
-    year: '2023',
-    label: 'Rachat',
-    desc: 'Rattachement au groupe Options',
-  },
-  {
-    year: '2023',
-    label: 'Mutualisations',
-    desc: 'Création de G2V',
-  },
-  {
-    year: '2024',
-    label: 'JO Paris',
-    desc: 'POP Tricolore',
-  },
+  { year: '1998', n: 1 },
+  { year: '2017', n: 2 },
+  { year: '2023', n: 3 },
+  { year: '2023', n: 4 },
+  { year: '2024', n: 5 },
 ]
 
 function FadeUp({ children, delay = 0 }) {
@@ -45,6 +26,7 @@ function FadeUp({ children, delay = 0 }) {
 }
 
 export default function Histoire() {
+  const { t } = useLang()
   return (
     <section className="section-pad bg-white overflow-hidden">
       <div className="container-wide">
@@ -53,7 +35,7 @@ export default function Histoire() {
           <h2
             className="text-center text-[clamp(42px,7vw,90px)] font-extralight tracking-[0.08em] uppercase mb-16 md:mb-20"
           >
-            L'Histoire
+            {t('histoire.title')}
           </h2>
         </FadeUp>
 
@@ -81,11 +63,11 @@ export default function Histoire() {
                     <div className="w-2.5 h-2.5 rounded-full bg-[#0A0A0A] flex-shrink-0 relative z-10 mb-3" />
                     {/* Label */}
                     <p className="text-[11px] font-semibold tracking-[0.1em] uppercase mb-1.5">
-                      {m.label}
+                      {t(`histoire.m${m.n}Label`)}
                     </p>
                     {/* Description */}
                     <p className="text-[11px] text-[#666] leading-snug font-light px-2">
-                      {m.desc}
+                      {t(`histoire.m${m.n}Desc`)}
                     </p>
                   </div>
                 ))}

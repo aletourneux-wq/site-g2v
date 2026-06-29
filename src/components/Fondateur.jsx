@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { useLang } from '../i18n/LanguageContext'
 
 function FadeUp({ children, delay = 0 }) {
   const ref = useRef(null)
@@ -17,6 +18,7 @@ function FadeUp({ children, delay = 0 }) {
 }
 
 export default function Fondateur() {
+  const { t } = useLang()
   return (
     <section id="adn" className="section-pad bg-white">
       <div className="container-wide">
@@ -34,15 +36,15 @@ export default function Fondateur() {
             {/* Content */}
             <div className="flex-1 text-center md:text-left">
               <h3 className="text-[22px] font-semibold tracking-tight mb-1">Vincent Gérard</h3>
-              <p className="text-[14px] italic text-[#555] mb-6 font-light">Fondateur de G2V</p>
+              <p className="text-[14px] italic text-[#555] mb-6 font-light">{t('fondateur.role')}</p>
               <p className="text-[15px] font-light leading-relaxed text-[#333] mb-8 max-w-[460px]">
-                "Dès mon plus jeune âge, j'ai toujours fait preuve d'une curiosité insatiable."
+                « {t('fondateur.quote')} »
               </p>
               <a
                 href="#"
                 className="inline-flex items-center gap-2 text-[12px] tracking-[0.14em] uppercase font-medium hover:text-[#003DA5] transition-colors"
               >
-                Voir l'équipe
+                {t('fondateur.cta')}
                 <span aria-hidden="true">→</span>
               </a>
             </div>

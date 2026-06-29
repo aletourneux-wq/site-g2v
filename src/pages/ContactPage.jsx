@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import { useLang } from '../i18n/LanguageContext'
 
 /* ── FadeUp ── */
 function FadeUp({ children, delay = 0, className = '' }) {
@@ -46,10 +47,11 @@ function Field({ label, type = 'text', name, textarea = false }) {
 
 /* ── Localisation — lien vers Google Maps (sans iframe) ── */
 function MapSection() {
+  const { t } = useLang()
   return (
     <section className="w-full bg-[#F5F3EF] py-16 md:py-20 border-t border-[#EBEBEB]">
       <div className="container-wide text-center">
-        <p className="text-[10px] tracking-[0.2em] uppercase text-[#999] mb-4">Nous trouver</p>
+        <p className="text-[10px] tracking-[0.2em] uppercase text-[#999] mb-4">{t('contactPage.mapEyebrow')}</p>
         <p className="text-[13px] leading-[1.9] text-[#555] uppercase tracking-[0.06em] mb-7">
           57 Boulevard de la République<br />
           Espace Lumière — Bâtiment 3 · 78400 Chatou
@@ -60,7 +62,7 @@ function MapSection() {
           rel="noopener noreferrer"
           className="btn-primary"
         >
-          Voir sur Google Maps
+          {t('contactPage.mapCta')}
         </a>
       </div>
     </section>
@@ -69,6 +71,7 @@ function MapSection() {
 
 export default function ContactPage() {
   const [sent, setSent] = useState(false)
+  const { t } = useLang()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -89,11 +92,10 @@ export default function ContactPage() {
                 className="uppercase text-center mb-8"
                 style={{ fontSize: 'clamp(34px, 7vw, 96px)', fontWeight: 100, letterSpacing: '0.1em', lineHeight: 1 }}
               >
-                Nous Contacter
+                {t('contactPage.title')}
               </h1>
               <p className="text-[14px] text-[#555] font-light max-w-[540px] mx-auto leading-relaxed">
-                Nous sommes là pour répondre à toutes vos questions et vous accompagner
-                dans vos demandes de devis.
+                {t('contactPage.subtitle')}
               </p>
             </FadeUp>
           </div>
@@ -109,7 +111,7 @@ export default function ContactPage() {
                 className="mb-6"
                 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 200, letterSpacing: '-0.01em' }}
               >
-                Paris
+                {t('contactPage.city')}
               </h2>
               <address className="not-italic text-[12px] leading-[2] text-[#555] uppercase tracking-[0.06em] mb-8">
                 G2V<br />
@@ -120,13 +122,13 @@ export default function ContactPage() {
 
               <div className="space-y-2">
                 <p className="text-[12px] tracking-[0.06em] text-[#555]">
-                  <span className="text-[#999] uppercase tracking-[0.16em] mr-2">Tél.</span>
+                  <span className="text-[#999] uppercase tracking-[0.16em] mr-2">{t('contactPage.tel')}</span>
                   <a href="tel:+33124608880" className="hover:text-[#003DA5] transition-colors">
                     01 24 60 88 80
                   </a>
                 </p>
                 <p className="text-[12px] tracking-[0.06em] text-[#555]">
-                  <span className="text-[#999] uppercase tracking-[0.16em] mr-2">Email</span>
+                  <span className="text-[#999] uppercase tracking-[0.16em] mr-2">{t('contactPage.email')}</span>
                   <a href="mailto:info@g2v.fr" className="hover:text-[#003DA5] transition-colors">
                     info@g2v.fr
                   </a>
@@ -138,24 +140,24 @@ export default function ContactPage() {
             <FadeUp delay={0.1}>
               <form onSubmit={handleSubmit} className="w-full">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                  <Field label="Nom" name="nom" />
-                  <Field label="Prénom" name="prenom" />
+                  <Field label={t('contactPage.fNom')} name="nom" />
+                  <Field label={t('contactPage.fPrenom')} name="prenom" />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                  <Field label="E-mail" type="email" name="email" />
-                  <Field label="Téléphone" type="tel" name="telephone" />
+                  <Field label={t('contactPage.fEmail')} type="email" name="email" />
+                  <Field label={t('contactPage.fTel')} type="tel" name="telephone" />
                 </div>
                 <div className="mb-8">
-                  <Field label="Message" name="message" textarea />
+                  <Field label={t('contactPage.fMessage')} name="message" textarea />
                 </div>
 
                 <div className="text-center">
                   <button type="submit" className="btn-primary">
-                    {sent ? 'Message envoyé ✓' : 'Envoyez'}
+                    {sent ? t('contactPage.sent') : t('contactPage.send')}
                   </button>
                   {sent && (
                     <p className="text-[11px] text-[#888] mt-4 tracking-[0.04em]">
-                      Merci, nous revenons vers vous très rapidement.
+                      {t('contactPage.thanks')}
                     </p>
                   )}
                 </div>

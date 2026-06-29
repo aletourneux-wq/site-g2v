@@ -1,5 +1,30 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useLang } from '../i18n/LanguageContext'
+
+/* ── Sélecteur de langue FR | EN ── */
+function LangSwitch({ className = '' }) {
+  const { lang, setLang } = useLang()
+  return (
+    <div className={`flex items-center text-[11px] tracking-[0.12em] font-medium select-none ${className}`}>
+      <button
+        onClick={() => setLang('fr')}
+        className={`px-1 transition-colors ${lang === 'fr' ? 'text-[#003DA5]' : 'text-[#999] hover:text-[#0A0A0A]'}`}
+        aria-label="Français"
+      >
+        FR
+      </button>
+      <span className="text-[#CCC]">|</span>
+      <button
+        onClick={() => setLang('en')}
+        className={`px-1 transition-colors ${lang === 'en' ? 'text-[#003DA5]' : 'text-[#999] hover:text-[#0A0A0A]'}`}
+        aria-label="English"
+      >
+        EN
+      </button>
+    </div>
+  )
+}
 
 /* ── Dropdown desktop ── */
 function Dropdown({ items, visible }) {
@@ -36,7 +61,7 @@ function Dropdown({ items, visible }) {
 }
 
 /* ── Nav item avec dropdown optionnel ── */
-function NavItem({ label, href, internal, isActive, dropdown, onHome }) {
+function NavItem({ label, href, internal, isActive, dropdown }) {
   const [open, setOpen] = useState(false)
   const timerRef = useRef(null)
 
@@ -54,9 +79,7 @@ function NavItem({ label, href, internal, isActive, dropdown, onHome }) {
     return (
       <div className="relative" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
         {internal ? (
-          <Link to={href} className={baseClass}>
-            {label}
-          </Link>
+          <Link to={href} className={baseClass}>{label}</Link>
         ) : (
           <a href={href} className={baseClass}>{label}</a>
         )}
@@ -77,7 +100,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [mobileExpanded, setMobileExpanded] = useState(null)
   const location = useLocation()
-  const onHome = location.pathname === '/'
+  const { t } = useLang()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -87,33 +110,37 @@ export default function Header() {
 
   const navItems = [
     {
-      label: 'MÉTIERS',
+      id: 'metiers',
+      label: t('nav.metiers'),
       href: '/metiers',
       internal: true,
       dropdown: [
-        { label: 'Événements', href: '/metiers/evenements', internal: true },
-        { label: 'Travaux',    href: '/metiers/travaux',    internal: true },
+        { label: t('nav.evenements'), href: '/metiers/evenements', internal: true },
+        { label: t('nav.travaux'),    href: '/metiers/travaux',    internal: true },
       ],
     },
     {
-      label: 'RÉALISATIONS',
+      id: 'realisations',
+      label: t('nav.realisations'),
       href: '/realisations',
       internal: true,
     },
     {
-      label: 'SAVOIR-FAIRE',
+      id: 'savoir-faire',
+      label: t('nav.savoirFaire'),
       href: '/savoir-faire',
       internal: true,
     },
     {
-      label: 'ADN',
+      id: 'adn',
+      label: t('nav.adn'),
       href: '/adn',
       internal: true,
       dropdown: [
-        { label: 'Actualités',     href: '/actualites', internal: true },
-        { label: 'Rencontres',     href: '/temoignages', internal: true },
-        { label: 'Équipe',         href: '#', internal: false },
-        { label: 'Nous rejoindre', href: '/nous-rejoindre', internal: true },
+        { label: t('nav.actualites'),    href: '/actualites', internal: true },
+        { label: t('nav.rencontres'),    href: '/temoignages', internal: true },
+        { label: t('nav.equipe'),        href: '#', internal: false },
+        { label: t('nav.nousRejoindre'), href: '/nous-rejoindre', internal: true },
       ],
     },
   ]
@@ -141,18 +168,18 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-8 lg:gap-10">
           {navItems.map((item) => (
             <NavItem
-              key={item.label}
+              key={item.id}
               {...item}
               isActive={isActive(item)}
-              onHome={onHome}
             />
           ))}
           <Link
             to="/contact"
             className="nav-link border border-[#0A0A0A] px-5 py-2 hover:bg-[#003DA5] hover:border-[#003DA5] hover:text-white transition-colors duration-300 ml-2"
           >
-            CONTACT
+            {t('nav.contact')}
           </Link>
+          <LangSwitch className="ml-1" />
         </nav>
 
         {/* Mobile burger */}
@@ -170,12 +197,12 @@ export default function Header() {
       {/* Mobile menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 bg-white border-t border-gray-100 ${
-          menuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
+          menuOpen ? 'max-h-[640px] opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         <nav className="px-6 py-2">
           {navItems.map((item) => (
-            <div key={item.label}>
+            <div key={item.id}>
               <div className="flex items-center justify-between border-b border-gray-100">
                 {item.internal ? (
                   <Link
@@ -196,15 +223,15 @@ export default function Header() {
                 )}
                 {item.dropdown && (
                   <button
-                    onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
+                    onClick={() => setMobileExpanded(mobileExpanded === item.id ? null : item.id)}
                     className="p-2 text-[#999] hover:text-[#003DA5] transition-colors"
                     aria-label="Ouvrir sous-menu"
                   >
-                    <span className={`block w-3 h-3 border-r border-b border-current transition-transform duration-200 ${mobileExpanded === item.label ? '-rotate-45 translate-y-0.5' : 'rotate-45 -translate-y-0.5'}`} />
+                    <span className={`block w-3 h-3 border-r border-b border-current transition-transform duration-200 ${mobileExpanded === item.id ? '-rotate-45 translate-y-0.5' : 'rotate-45 -translate-y-0.5'}`} />
                   </button>
                 )}
               </div>
-              {item.dropdown && mobileExpanded === item.label && (
+              {item.dropdown && mobileExpanded === item.id && (
                 <div className="pl-4 pb-2">
                   {item.dropdown.map(({ label, href, internal }) =>
                     internal ? (
@@ -236,8 +263,12 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
             className="flex items-center py-4 text-[11px] tracking-[0.2em] font-medium hover:text-[#003DA5] transition-colors"
           >
-            CONTACT
+            {t('nav.contact')}
           </Link>
+          {/* Sélecteur de langue mobile */}
+          <div className="py-4 border-t border-gray-100">
+            <LangSwitch />
+          </div>
         </nav>
       </div>
     </header>

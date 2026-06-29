@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import { useLang } from '../i18n/LanguageContext'
 
 /* ── FadeUp ── */
 function FadeUp({ children, delay = 0, className = '' }) {
@@ -57,6 +58,7 @@ function UploadIcon() {
 
 /* ── Zone d'envoi de documents ── */
 function DocumentsUpload() {
+  const { t } = useLang()
   const [files, setFiles] = useState([])
   const inputRef = useRef(null)
   const [dragActive, setDragActive] = useState(false)
@@ -96,7 +98,7 @@ function DocumentsUpload() {
   return (
     <div>
       <span className="block text-[10px] tracking-[0.2em] uppercase text-[#999] mb-3">
-        Vos documents — CV, lettre de motivation, portfolio
+        {t('joinPage.docsLabel')}
       </span>
 
       {/* Zone cliquable / drag & drop */}
@@ -114,10 +116,10 @@ function DocumentsUpload() {
       >
         <UploadIcon />
         <span className="text-[13px] mt-3 font-medium">
-          Glissez vos fichiers ici ou cliquez pour parcourir
+          {t('joinPage.docsDrop')}
         </span>
         <span className="text-[11px] mt-1.5 text-[#AAA]">
-          PDF, DOC, JPG, PNG — 10 Mo max par fichier
+          {t('joinPage.docsFormats')}
         </span>
       </button>
 
@@ -164,6 +166,7 @@ function DocumentsUpload() {
 
 export default function NousRejoindrePage() {
   const [sent, setSent] = useState(false)
+  const { t } = useLang()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -184,14 +187,10 @@ export default function NousRejoindrePage() {
                 className="uppercase text-center mb-8"
                 style={{ fontSize: 'clamp(34px, 7vw, 96px)', fontWeight: 100, letterSpacing: '0.1em', lineHeight: 1 }}
               >
-                Nous Rejoindre
+                {t('joinPage.title')}
               </h1>
               <p className="text-[14px] text-[#555] font-light max-w-[600px] mx-auto leading-relaxed">
-                Bâtisseurs, artisans, créatifs, passionnés du détail bien fait — chez G2V,
-                nous croyons que l'excellence est avant tout une affaire d'équipe. Que vous soyez
-                expert de votre métier ou en quête d'une nouvelle aventure, nous serions ravis de
-                faire votre connaissance. Présentez-vous, partagez votre parcours, et construisons
-                la suite ensemble.
+                {t('joinPage.intro')}
               </p>
             </FadeUp>
           </div>
@@ -207,22 +206,21 @@ export default function NousRejoindrePage() {
                 className="mb-6"
                 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 200, letterSpacing: '-0.01em' }}
               >
-                Rejoignez l'aventure
+                {t('joinPage.leftTitle')}
               </h2>
               <p className="text-[14px] text-[#555] font-light leading-relaxed mb-8 max-w-[380px]">
-                Des chantiers d'exception, des marques de luxe, des projets qui ne ressemblent à
-                aucun autre. Chez G2V, chaque talent compte et chaque savoir-faire trouve sa place.
+                {t('joinPage.leftText')}
               </p>
 
               <div className="space-y-2">
                 <p className="text-[12px] tracking-[0.06em] text-[#555]">
-                  <span className="text-[#999] uppercase tracking-[0.16em] mr-2">Email</span>
+                  <span className="text-[#999] uppercase tracking-[0.16em] mr-2">{t('joinPage.email')}</span>
                   <a href="mailto:recrutement@g2v.fr" className="hover:text-[#003DA5] transition-colors">
                     recrutement@g2v.fr
                   </a>
                 </p>
                 <p className="text-[12px] tracking-[0.06em] text-[#555]">
-                  <span className="text-[#999] uppercase tracking-[0.16em] mr-2">Tél.</span>
+                  <span className="text-[#999] uppercase tracking-[0.16em] mr-2">{t('joinPage.tel')}</span>
                   <a href="tel:+33124608880" className="hover:text-[#003DA5] transition-colors">
                     01 24 60 88 80
                   </a>
@@ -234,18 +232,18 @@ export default function NousRejoindrePage() {
             <FadeUp delay={0.1}>
               <form onSubmit={handleSubmit} className="w-full">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                  <Field label="Nom" name="nom" />
-                  <Field label="Prénom" name="prenom" />
+                  <Field label={t('joinPage.fNom')} name="nom" />
+                  <Field label={t('joinPage.fPrenom')} name="prenom" />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                  <Field label="E-mail" type="email" name="email" />
-                  <Field label="Téléphone" type="tel" name="telephone" />
+                  <Field label={t('joinPage.fEmail')} type="email" name="email" />
+                  <Field label={t('joinPage.fTel')} type="tel" name="telephone" />
                 </div>
                 <div className="mb-6">
-                  <Field label="Poste recherché" name="poste" />
+                  <Field label={t('joinPage.fPoste')} name="poste" />
                 </div>
                 <div className="mb-8">
-                  <Field label="Message" name="message" textarea />
+                  <Field label={t('joinPage.fMessage')} name="message" textarea />
                 </div>
 
                 {/* Zone documents */}
@@ -255,11 +253,11 @@ export default function NousRejoindrePage() {
 
                 <div className="text-center">
                   <button type="submit" className="btn-primary">
-                    {sent ? 'Candidature envoyée ✓' : 'Envoyer ma candidature'}
+                    {sent ? t('joinPage.sent') : t('joinPage.send')}
                   </button>
                   {sent && (
                     <p className="text-[11px] text-[#888] mt-4 tracking-[0.04em]">
-                      Merci pour votre candidature, nous revenons vers vous très rapidement.
+                      {t('joinPage.thanks')}
                     </p>
                   )}
                 </div>

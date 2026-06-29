@@ -4,24 +4,11 @@ import { motion, useInView } from 'framer-motion'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import UnProjet from '../components/UnProjet'
+import { useLang } from '../i18n/LanguageContext'
 
 const UNIVERS = [
-  {
-    id: 'evenements',
-    label: 'Événements',
-    subtitle: 'Fashion show · Showroom · Exhibition',
-    desc: 'Structures temporaires, mobilier sur mesure et aménagements éphémères pour vos événements de mode et de prestige.',
-    img: "/metiers/hero-evenements.png",
-    href: '/metiers/evenements',
-  },
-  {
-    id: 'travaux',
-    label: 'Travaux',
-    subtitle: 'Retail · Office · Home',
-    desc: 'Rénovations complètes et aménagements permanents pour vos boutiques, bureaux et lieux de vie haut de gamme.',
-    img: "/metiers/hero-travaux.jpg",
-    href: '/metiers/travaux',
-  },
+  { id: 'evenements', labelKey: 'nav.evenements', subKey: 'metiersHub.evSubtitle', descKey: 'metiersHub.evDesc', img: "/metiers/hero-evenements.png", href: '/metiers/evenements' },
+  { id: 'travaux',    labelKey: 'nav.travaux',    subKey: 'metiersHub.trSubtitle', descKey: 'metiersHub.trDesc', img: "/metiers/hero-travaux.jpg",  href: '/metiers/travaux' },
 ]
 
 function FadeUp({ children, delay = 0 }) {
@@ -40,6 +27,7 @@ function FadeUp({ children, delay = 0 }) {
 }
 
 export default function MetiersPage() {
+  const { t } = useLang()
   return (
     <div className="font-sans bg-white text-[#0A0A0A] overflow-x-hidden">
       <Header />
@@ -61,7 +49,7 @@ export default function MetiersPage() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
             >
-              G2V
+              {t('metiersHub.eyebrow')}
             </motion.p>
             <motion.h1
               className="uppercase text-white"
@@ -70,7 +58,7 @@ export default function MetiersPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              Métiers
+              {t('metiersHub.title')}
             </motion.h1>
           </div>
         </section>
@@ -83,16 +71,13 @@ export default function MetiersPage() {
                 className="mb-6 leading-tight"
                 style={{ fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 300, letterSpacing: '-0.01em' }}
               >
-                Plongez dans nos univers
+                {t('metiersHub.introTitle')}
               </h2>
               <p className="text-[14px] text-[#555] font-light leading-relaxed mb-4">
-                Au croisement de <strong className="font-medium text-[#0A0A0A]">l'événementiel</strong> et de{' '}
-                <strong className="font-medium text-[#0A0A0A]">l'aménagement</strong>, G2V conjugue plusieurs
-                expertises pour proposer des solutions complètes et cohérentes.
+                {t('metiersHub.intro1')}
               </p>
               <p className="text-[14px] text-[#555] font-light leading-relaxed">
-                En alliant la gestion d'événements à la conception d'espaces, G2V accompagne ses clients
-                de l'idée initiale jusqu'à la mise en place sur site — esthétiques et fonctionnels.
+                {t('metiersHub.intro2')}
               </p>
             </div>
           </FadeUp>
@@ -118,22 +103,22 @@ export default function MetiersPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-black/10" />
 
                   <div className="absolute bottom-10 left-10 right-10">
-                    <p className="text-white/55 text-[10px] tracking-[0.28em] uppercase mb-3">{u.subtitle}</p>
+                    <p className="text-white/55 text-[10px] tracking-[0.28em] uppercase mb-3">{t(u.subKey)}</p>
                     <h3
                       className="text-white font-light mb-4"
                       style={{ fontSize: 'clamp(30px, 3.5vw, 48px)', letterSpacing: '0.04em' }}
                     >
-                      {u.label}
+                      {t(u.labelKey)}
                     </h3>
                     <p className="text-white/65 text-[13px] font-light leading-relaxed max-w-[300px] mb-6">
-                      {u.desc}
+                      {t(u.descKey)}
                     </p>
                     <motion.span
                       className="text-[11px] tracking-[0.18em] uppercase text-white/70 border-b border-white/35 pb-0.5"
                       variants={{ hovered: { color: 'rgba(255,255,255,1)', borderColor: 'rgba(255,255,255,0.8)' } }}
                       transition={{ duration: 0.3 }}
                     >
-                      En savoir plus →
+                      {t('common.more')}
                     </motion.span>
                   </div>
                 </motion.div>

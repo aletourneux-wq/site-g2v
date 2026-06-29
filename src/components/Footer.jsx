@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom'
+import { useLang } from '../i18n/LanguageContext'
 
 const QUICK_LINKS = [
-  { label: 'ACTUALITÉS',    to: '/actualites' },
-  { label: 'RENCONTRES',    to: '/temoignages' },
-  { label: 'CONTACT',       to: '/contact' },
-  { label: 'NOUS REJOINDRE', to: '/nous-rejoindre' },
+  { k: 'actualites',    to: '/actualites' },
+  { k: 'rencontres',    to: '/temoignages' },
+  { k: 'contact',       to: '/contact' },
+  { k: 'nousRejoindre', to: '/nous-rejoindre' },
 ]
 const OTHER_LINKS = [
-  { label: 'ADN',          to: null },
-  { label: 'MÉTIERS',      to: '/metiers' },
-  { label: 'RÉALISATIONS', to: '/realisations' },
-  { label: 'SAVOIR-FAIRE', to: '/savoir-faire' },
+  { k: 'adn',          to: '/adn' },
+  { k: 'metiers',      to: '/metiers' },
+  { k: 'realisations', to: '/realisations' },
+  { k: 'savoirFaire',  to: '/savoir-faire' },
 ]
 
 function IconFacebook() {
@@ -43,6 +44,7 @@ function IconLinkedIn() {
 
 export default function Footer() {
   const year = new Date().getFullYear()
+  const { t } = useLang()
 
   return (
     <footer className="bg-[#0A0A0A] text-white">
@@ -65,36 +67,27 @@ export default function Footer() {
               Terrase — Chatou
             </address>
             <p className="text-[11px] text-white/60 leading-[1.9]">
-              Téléphone : <a href="tel:+33124608880" className="hover:text-white transition-colors">01 24 60 88 80</a>
+              {t('footer.phone')} : <a href="tel:+33124608880" className="hover:text-white transition-colors">01 24 60 88 80</a>
             </p>
             <p className="text-[11px] text-white/60">
-              Email : <a href="mailto:info@g2v.fr" className="hover:text-white transition-colors">info@g2v.fr</a>
+              {t('footer.email')} : <a href="mailto:info@g2v.fr" className="hover:text-white transition-colors">info@g2v.fr</a>
             </p>
           </div>
 
           {/* Col 2 — Accès rapide */}
           <div>
             <p className="text-[11px] tracking-[0.2em] uppercase font-semibold mb-5 text-white/80">
-              Accès rapide
+              {t('footer.quickAccess')}
             </p>
             <ul className="space-y-3">
-              {QUICK_LINKS.map(({ label, to }) => (
-                <li key={label}>
-                  {to ? (
-                    <Link
-                      to={to}
-                      className="text-[11px] tracking-[0.1em] uppercase text-white/50 hover:text-white transition-colors"
-                    >
-                      {label}
-                    </Link>
-                  ) : (
-                    <a
-                      href="#"
-                      className="text-[11px] tracking-[0.1em] uppercase text-white/50 hover:text-white transition-colors"
-                    >
-                      {label}
-                    </a>
-                  )}
+              {QUICK_LINKS.map(({ k, to }) => (
+                <li key={k}>
+                  <Link
+                    to={to}
+                    className="text-[11px] tracking-[0.1em] uppercase text-white/50 hover:text-white transition-colors"
+                  >
+                    {t(`footer.links.${k}`)}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -103,26 +96,17 @@ export default function Footer() {
           {/* Col 3 — Autres */}
           <div>
             <p className="text-[11px] tracking-[0.2em] uppercase font-semibold mb-5 text-white/80">
-              Autres
+              {t('footer.others')}
             </p>
             <ul className="space-y-3">
-              {OTHER_LINKS.map(({ label, to }) => (
-                <li key={label}>
-                  {to ? (
-                    <Link
-                      to={to}
-                      className="text-[11px] tracking-[0.1em] uppercase text-white/50 hover:text-white transition-colors"
-                    >
-                      {label}
-                    </Link>
-                  ) : (
-                    <a
-                      href="#"
-                      className="text-[11px] tracking-[0.1em] uppercase text-white/50 hover:text-white transition-colors"
-                    >
-                      {label}
-                    </a>
-                  )}
+              {OTHER_LINKS.map(({ k, to }) => (
+                <li key={k}>
+                  <Link
+                    to={to}
+                    className="text-[11px] tracking-[0.1em] uppercase text-white/50 hover:text-white transition-colors"
+                  >
+                    {t(`footer.links.${k}`)}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -131,7 +115,7 @@ export default function Footer() {
           {/* Col 4 — Newsletter + social */}
           <div>
             <p className="text-[11px] tracking-[0.2em] uppercase font-semibold mb-5 text-white/80">
-              Abonnez-vous à la newsletter de G2V
+              {t('footer.newsletter')}
             </p>
             <form
               onSubmit={(e) => e.preventDefault()}
@@ -139,21 +123,21 @@ export default function Footer() {
             >
               <input
                 type="email"
-                placeholder="Votre e-mail"
+                placeholder={t('footer.emailPlaceholder')}
                 className="bg-transparent border border-white/25 text-white text-[12px] px-4 py-2.5 placeholder:text-white/30 focus:outline-none focus:border-white/60 transition-colors"
-                aria-label="Votre adresse e-mail"
+                aria-label={t('footer.emailPlaceholder')}
               />
               <button
                 type="submit"
                 className="text-[11px] tracking-[0.16em] uppercase font-medium border border-white/30 px-4 py-2.5 hover:bg-white hover:text-[#0A0A0A] transition-colors text-left"
               >
-                S'abonner
+                {t('footer.subscribe')}
               </button>
             </form>
 
             {/* Social */}
             <div>
-              <p className="text-[11px] tracking-[0.2em] uppercase text-white/50 mb-4">Suivez-nous</p>
+              <p className="text-[11px] tracking-[0.2em] uppercase text-white/50 mb-4">{t('footer.follow')}</p>
               <div className="flex items-center gap-4">
                 <a href="#" className="text-white/50 hover:text-white transition-colors" aria-label="Facebook">
                   <IconFacebook />
@@ -177,13 +161,13 @@ export default function Footer() {
             © Copyright {year}, Coda Interactive
           </p>
           <div className="flex items-center gap-6">
-            {['Mentions légales', 'Politique de confidentialité', 'Gestion des cookies'].map((l) => (
+            {['legal', 'privacy', 'cookies'].map((l) => (
               <a
                 key={l}
                 href="#"
                 className="text-[10px] text-white/30 hover:text-white/60 transition-colors tracking-[0.04em]"
               >
-                {l}
+                {t(`footer.${l}`)}
               </a>
             ))}
           </div>

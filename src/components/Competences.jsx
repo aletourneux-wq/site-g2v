@@ -1,14 +1,14 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
-
+import { useLang } from '../i18n/LanguageContext'
 
 const ITEMS = [
-  { img: "/competences/entreprise-generale.jpg", label: 'Entreprise Générale',   alt: 'G2V entreprise générale du bâtiment' },
-  { img: "/competences/menuiserie.jpg",                                label: 'Menuiserie',            alt: 'Menuiserie haut de gamme G2V' },
-  { img: "/competences/marbrerie.jpg",                                 label: 'Marbrerie',             alt: 'Marbrerie et pierre naturelle G2V' },
-  { img: "/competences/miroiterie.jpg",                                label: 'Miroiterie',            alt: 'Miroiterie et verre sur mesure G2V' },
-  { img: "/competences/serrurerie.jpg",                                label: 'Serrurerie & Métal',    alt: 'Serrurerie et métallerie G2V' },
+  { img: "/competences/entreprise-generale.jpg", key: 'entreprise', alt: 'G2V entreprise générale du bâtiment' },
+  { img: "/competences/menuiserie.jpg",          key: 'menuiserie', alt: 'Menuiserie haut de gamme G2V' },
+  { img: "/competences/marbrerie.jpg",           key: 'marbrerie',  alt: 'Marbrerie et pierre naturelle G2V' },
+  { img: "/competences/miroiterie.jpg",          key: 'miroiterie', alt: 'Miroiterie et verre sur mesure G2V' },
+  { img: "/competences/serrurerie.jpg",          key: 'serrurerie', alt: 'Serrurerie et métallerie G2V' },
 ]
 
 function FadeUp({ children, delay = 0 }) {
@@ -28,6 +28,7 @@ function FadeUp({ children, delay = 0 }) {
 
 export default function Competences() {
   const scrollRef = useRef(null)
+  const { t } = useLang()
 
   const scroll = (dir) => {
     if (scrollRef.current) {
@@ -41,7 +42,7 @@ export default function Competences() {
         {/* Heading — centré */}
         <FadeUp>
           <div className="flex items-center justify-center mb-10 md:mb-14">
-            <h2 className="text-display text-center">Nos 5 compétences</h2>
+            <h2 className="text-display text-center">{t('competences.title')}</h2>
           </div>
         </FadeUp>
 
@@ -54,19 +55,19 @@ export default function Competences() {
             >
               {ITEMS.map((item) => (
                 <div
-                  key={item.label}
+                  key={item.key}
                   className="flex-shrink-0 w-[180px] md:w-[200px] group cursor-pointer"
                 >
                   <div className="relative overflow-hidden aspect-square mb-3">
                     <img
                       src={item.img}
-                      alt={item.alt}
+                      alt={t(`competences.${item.key}`)}
                       className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-[1.06]"
                     />
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                   </div>
                   <p className="text-[11px] tracking-[0.12em] uppercase text-center font-medium text-[#0A0A0A]">
-                    {item.label}
+                    {t(`competences.${item.key}`)}
                   </p>
                 </div>
               ))}
@@ -77,7 +78,7 @@ export default function Competences() {
         {/* CTA — centré */}
         <FadeUp delay={0.15}>
           <div className="text-center mt-10">
-            <Link to="/savoir-faire" className="btn-primary">En savoir plus</Link>
+            <Link to="/savoir-faire" className="btn-primary">{t('competences.cta')}</Link>
           </div>
         </FadeUp>
       </div>

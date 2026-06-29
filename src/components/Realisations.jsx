@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { motion, useInView, useMotionValue, useTransform, animate } from 'framer-motion'
+import { useLang } from '../i18n/LanguageContext'
 
 const PROJECTS = [
   { id: 'celine',   label: 'CÉLINE',         img: "/realisations/home-celine.jpg",        featured: true },
@@ -11,8 +12,8 @@ const PROJECTS = [
 ]
 
 const STATS = [
-  { to: 350, suffix: '',  unit: 'PROJETS PAR AN' },
-  { to: 100, suffix: '%', unit: 'ENGAGÉS' },
+  { to: 350, suffix: '',  key: 'statProjects' },
+  { to: 100, suffix: '%', key: 'statEngaged' },
 ]
 
 /* ── Count-up animé au scroll ── */
@@ -53,6 +54,7 @@ function FadeUp({ children, delay = 0 }) {
 export default function Realisations() {
   const [hovered, setHovered] = useState(null)
   const navigate = useNavigate()
+  const { t } = useLang()
 
   const getWidth = (id) => {
     if (hovered === null) return '20%'
@@ -65,9 +67,9 @@ export default function Realisations() {
       {/* Heading */}
       <div className="container-wide text-center mb-12">
         <FadeUp>
-          <h2 className="text-display mb-4">Nos réalisations</h2>
+          <h2 className="text-display mb-4">{t('realisations.title')}</h2>
           <p className="text-[14px] text-[#555] font-light max-w-[480px] mx-auto leading-relaxed">
-            Une sélection de nos projets les plus marquants en événementiel et aménagement travaux.
+            {t('realisations.subtitle')}
           </p>
         </FadeUp>
       </div>
@@ -121,7 +123,7 @@ export default function Realisations() {
                     animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
                     transition={{ duration: 0.28, delay: isActive ? 0.22 : 0 }}
                   >
-                    En savoir plus →
+                    {t('realisations.more')}
                   </motion.p>
                 </div>
               </motion.div>
@@ -133,21 +135,21 @@ export default function Realisations() {
       {/* CTA */}
       <FadeUp delay={0.15}>
         <div className="text-center mt-10">
-          <Link to="/realisations" className="btn-primary">Toutes les réalisations</Link>
+          <Link to="/realisations" className="btn-primary">{t('realisations.cta')}</Link>
         </div>
       </FadeUp>
 
       {/* Stats avec count-up */}
       <div className="container-wide mt-16">
         <div className="flex items-center justify-center gap-16 md:gap-24">
-          {STATS.map(({ to, suffix, unit }, i) => (
-            <div key={unit} className="flex items-center gap-16 md:gap-24">
+          {STATS.map(({ to, suffix, key }, i) => (
+            <div key={key} className="flex items-center gap-16 md:gap-24">
               <FadeUp>
                 <div className="text-center">
                   <p className="text-[42px] md:text-[52px] font-bold text-[#003DA5] leading-none">
                     <CountUp to={to} suffix={suffix} />
                   </p>
-                  <p className="text-[10px] tracking-[0.22em] uppercase mt-2 text-[#555]">{unit}</p>
+                  <p className="text-[10px] tracking-[0.22em] uppercase mt-2 text-[#555]">{t(`realisations.${key}`)}</p>
                 </div>
               </FadeUp>
               {i < STATS.length - 1 && <div className="w-[1px] h-12 bg-gray-300" />}

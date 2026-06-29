@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useLang } from '../i18n/LanguageContext'
 
 export default function Hero() {
+  const { t } = useLang()
   return (
     <section className="pt-16">
       {/* Title block */}
@@ -12,7 +14,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
-          Artisans<br />Bâtisseurs
+          {t('hero.line1')}<br />{t('hero.line2')}
         </motion.h1>
       </div>
 
@@ -34,7 +36,7 @@ export default function Hero() {
             <div className="absolute inset-0 bg-black/15 group-hover:bg-black/25 transition-colors duration-400" />
             <div className="absolute inset-0 flex items-center justify-center">
               <span className="bg-white text-[#0A0A0A] text-[13px] font-medium tracking-[0.16em] uppercase px-7 py-3.5 shadow-sm group-hover:bg-[#003DA5] group-hover:text-white transition-colors duration-300">
-                Événements
+                {t('hero.evenements')}
               </span>
             </div>
           </motion.div>
@@ -56,7 +58,7 @@ export default function Hero() {
             <div className="absolute inset-0 bg-black/15 group-hover:bg-black/25 transition-colors duration-400" />
             <div className="absolute inset-0 flex items-center justify-center">
               <span className="bg-white text-[#0A0A0A] text-[13px] font-medium tracking-[0.16em] uppercase px-7 py-3.5 shadow-sm group-hover:bg-[#003DA5] group-hover:text-white transition-colors duration-300">
-                Travaux
+                {t('hero.travaux')}
               </span>
             </div>
           </motion.div>

@@ -1,9 +1,10 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { useLang } from '../i18n/LanguageContext'
 
 const PANELS = [
-  { img: "/accueil/bloc-g2v-savoir-faire.png",  label: 'SAVOIR-FAIRE', alt: 'Savoir-faire G2V' },
-  { img: "/accueil/bloc-g2v-adn.png",           label: 'ADN',           alt: 'ADN G2V' },
+  { img: "/accueil/bloc-g2v-savoir-faire.png", key: 'savoirFaire', href: '/savoir-faire', alt: 'Savoir-faire G2V' },
+  { img: "/accueil/bloc-g2v-adn.png",          key: 'adn',         href: '/adn',          alt: 'ADN G2V' },
 ]
 
 function FadeUp({ children, delay = 0 }) {
@@ -22,6 +23,7 @@ function FadeUp({ children, delay = 0 }) {
 }
 
 export default function SavoirFaire() {
+  const { t } = useLang()
   const scrollRef = useRef(null)
   const isDragging = useRef(false)
   const startX = useRef(0)
@@ -77,7 +79,7 @@ export default function SavoirFaire() {
         >
           {PANELS.map((p) => (
             <div
-              key={p.label}
+              key={p.key}
               className="flex-shrink-0 w-full md:w-1/2 relative h-[360px] md:h-[520px] overflow-hidden group"
             >
               <img
@@ -89,7 +91,7 @@ export default function SavoirFaire() {
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
               <div className="absolute bottom-6 left-8">
                 <span className="text-white text-[11px] tracking-[0.22em] font-medium uppercase">
-                  {p.label}
+                  {t(`nav.${p.key}`)}
                 </span>
               </div>
             </div>

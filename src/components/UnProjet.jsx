@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
+import { useLang } from '../i18n/LanguageContext'
 
 function FadeUp({ children, delay = 0 }) {
   const ref = useRef(null)
@@ -18,6 +19,7 @@ function FadeUp({ children, delay = 0 }) {
 }
 
 export default function UnProjet() {
+  const { t } = useLang()
   return (
     <section id="contact" className="section-pad bg-white">
       <div className="grid grid-cols-1 md:grid-cols-2">
@@ -37,16 +39,16 @@ export default function UnProjet() {
         <FadeUp delay={0.15}>
           <div className="flex flex-col justify-center px-8 md:px-16 py-16 bg-white">
             <h2 className="text-display mb-3 leading-tight">
-              Un Projet ?
+              {t('unProjet.title')}
             </h2>
             <p className="text-[22px] md:text-[28px] italic font-light text-[#555] mb-6">
-              Contactez-nous
+              {t('unProjet.subtitle')}
             </p>
             <p className="text-[14px] font-light text-[#555] leading-relaxed mb-10 max-w-[360px]">
-              Nous sommes là pour répondre à toutes vos questions et vous accompagner dans vos demandes de devis.
+              {t('unProjet.text')}
             </p>
             <div>
-              <Link to="/contact" className="btn-primary">Contact</Link>
+              <Link to="/contact" className="btn-primary">{t('unProjet.cta')}</Link>
             </div>
           </div>
         </FadeUp>
