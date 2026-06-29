@@ -3,6 +3,7 @@ import { motion, useInView } from 'framer-motion'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import UnProjet from '../components/UnProjet'
+import { useLang } from '../i18n/LanguageContext'
 
 /* ── FadeUp ── */
 function FadeUp({ children, delay = 0, className = '' }) {
@@ -21,14 +22,14 @@ function FadeUp({ children, delay = 0, className = '' }) {
   )
 }
 
-/* ── Notre rôle — 6 univers ── */
+/* ── Notre rôle — 6 univers (labels identiques FR/EN sauf Showroom) ── */
 const UNIVERS = [
-  { label: 'Retail',             img: "/domaines/retail.jpg" },
-  { label: 'Office',             img: "/domaines/office.jpg" },
-  { label: 'Home',               img: "/domaines/home.jpg" },
-  { label: 'Fashion Show',       img: '/domaines/fashion-show.png' },
-  { label: 'Showroom et Pop Up', img: '/domaines/showroom.jpg' },
-  { label: 'Exhibition',         img: "/domaines/exhibition.webp" },
+  { label: 'Retail',       img: "/domaines/retail.jpg" },
+  { label: 'Office',       img: "/domaines/office.jpg" },
+  { label: 'Home',         img: "/domaines/home.jpg" },
+  { label: 'Fashion Show', img: '/domaines/fashion-show.png' },
+  { labelKey: 'savoirFairePage.showroom', img: '/domaines/showroom.jpg' },
+  { label: 'Exhibition',   img: "/domaines/exhibition.webp" },
 ]
 
 /* ── Photos mosaïque compétences ── */
@@ -39,35 +40,16 @@ const MOSAIC_IMGS = [
   '/competences/entreprise/g2v-8.jpg',
 ]
 
-/* ── Compétences détail ── */
+/* ── Compétences détail (titres/textes via i18n) ── */
 const COMPETENCES = [
-  {
-    id: 'miroiterie',
-    title: 'Miroiterie',
-    img: "/competences/miroiterie.jpg",
-    text: "Aussi ancien qu'exigeant, le verre reste la matière la plus complexe à façonner. Sa fragilité et sa rigidité à la fois demandent une maîtrise rare que nos équipes maîtrisent pour mener à bien chaque projet. Son veinage préserve l'authenticité de notre travail pour toujours.",
-  },
-  {
-    id: 'menuiserie',
-    title: 'Menuiserie',
-    img: "/competences/menuiserie.jpg",
-    text: "Polir, découper, teindre… le bois offre mille façons d'être sublime. Alliant machines performantes et gestes artisanaux, nos équipes explorent à chaque projet toutes les possibilités de cette matière. Son veinage unique reste une signature naturelle qui ne cesse de nous inspirer.",
-  },
-  {
-    id: 'marbrerie',
-    title: 'Marbrerie',
-    img: "/competences/marbrerie.jpg",
-    text: "Pierre naturelle d'exception, le marbre incarne à lui seul le luxe intemporel. Chaque veine, chaque teinte raconte une histoire unique. Nos marbriers sélectionnent et travaillent chaque dalle avec une précision chirurgicale pour sublimer vos espaces.",
-  },
-  {
-    id: 'serrurerie',
-    title: 'Serrurerie',
-    img: "/competences/serrurerie.jpg",
-    text: "Du garde-corps sur mesure à la ferronnerie d'art, le métal prend entre nos mains toutes les formes que vous imaginez. Nos serruriers allient techniques ancestrales et outils contemporains pour concevoir des pièces uniques, robustes et esthétiques.",
-  },
+  { id: 'miroiterie', img: "/competences/miroiterie.jpg" },
+  { id: 'menuiserie', img: "/competences/menuiserie.jpg" },
+  { id: 'marbrerie',  img: "/competences/marbrerie.jpg" },
+  { id: 'serrurerie', img: "/competences/serrurerie.jpg" },
 ]
 
 export default function SavoirFairePage() {
+  const { t } = useLang()
   return (
     <div className="font-sans bg-white text-[#0A0A0A] overflow-x-hidden">
       <Header />
@@ -87,7 +69,7 @@ export default function SavoirFairePage() {
               className="text-white uppercase text-center"
               style={{ fontSize: 'clamp(34px, 7vw, 96px)', fontWeight: 100, letterSpacing: '0.1em', lineHeight: 1 }}
             >
-              Savoir-Faire
+              {t('savoirFairePage.title')}
             </h1>
           </div>
         </section>
@@ -96,7 +78,7 @@ export default function SavoirFairePage() {
         <section className="py-20 md:py-28 text-center px-6">
           <FadeUp>
             <h2
-              className="mb-8 mx-auto"
+              className="mb-8 mx-auto whitespace-pre-line"
               style={{
                 fontSize: 'clamp(30px, 5vw, 64px)',
                 fontWeight: 100,
@@ -105,15 +87,13 @@ export default function SavoirFairePage() {
                 maxWidth: '860px',
               }}
             >
-              Bâtisseurs de rêves,<br />artisans d'excellence.
+              {t('savoirFairePage.introTitle')}
             </h2>
             <p
               className="text-[#555] font-light leading-relaxed mx-auto"
               style={{ fontSize: '15px', maxWidth: '620px' }}
             >
-              Qu'ils soient architectes, décorateurs, directeurs artistiques, stylistes, créateurs,
-              hommes ou femmes d'affaires, particuliers avertis… toutes et tous ont des envies,
-              des rêves, des besoins à assouvir, à partager, à offrir.
+              {t('savoirFairePage.intro')}
             </p>
           </FadeUp>
         </section>
@@ -126,25 +106,27 @@ export default function SavoirFairePage() {
                 className="text-center mb-4"
                 style={{ fontSize: 'clamp(26px, 4vw, 52px)', fontWeight: 200 }}
               >
-                Notre rôle
+                {t('savoirFairePage.roleTitle')}
               </h2>
               <p
                 className="text-center text-[#666] font-light mb-14 mx-auto"
                 style={{ fontSize: '14px', maxWidth: '500px' }}
               >
-                Les accompagner dans cette aventure. Notre savoir-faire s'exprime au sein de six univers différents :
+                {t('savoirFairePage.roleSub')}
               </p>
             </FadeUp>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-              {UNIVERS.map(({ label, img }, i) => (
+              {UNIVERS.map((u, i) => {
+                const label = u.labelKey ? t(u.labelKey) : u.label
+                return (
                 <FadeUp key={label} delay={(i % 3) * 0.08}>
                   <motion.div
                     whileHover="hovered"
                     className="relative overflow-hidden aspect-square cursor-default"
                   >
                     <motion.img
-                      src={img}
+                      src={u.img}
                       alt={label}
                       className="absolute inset-0 w-full h-full object-cover"
                       style={{ filter: 'grayscale(100%)' }}
@@ -161,7 +143,8 @@ export default function SavoirFairePage() {
                     </div>
                   </motion.div>
                 </FadeUp>
-              ))}
+                )
+              })}
             </div>
           </div>
         </section>
@@ -176,13 +159,13 @@ export default function SavoirFairePage() {
                 className="text-center mb-3"
                 style={{ fontSize: 'clamp(26px, 4vw, 52px)', fontWeight: 200 }}
               >
-                Les compétences
+                {t('savoirFairePage.skillsTitle')}
               </h2>
               <h3
                 className="text-center mb-14 text-[#888]"
                 style={{ fontSize: 'clamp(16px, 2.2vw, 28px)', fontWeight: 200 }}
               >
-                Entreprise générale
+                {t('savoirFairePage.skillsSub')}
               </h3>
             </FadeUp>
 
@@ -210,11 +193,7 @@ export default function SavoirFairePage() {
                     className="text-center leading-relaxed"
                     style={{ color: '#2A3B60', fontSize: '13px', maxWidth: '440px' }}
                   >
-                    Faire évoluer l'ensemble des métiers de la construction et (ou) de l'agencement
-                    confère à l'entreprise générale une caractéristique unique. Plomberie, climatisation,
-                    peinture, plâtrerie, menuiserie, électricité, serrurerie, miroiterie, revêtement de
-                    sols, autant de spécialités maîtrisées en interne pour vous garantir une cohérence
-                    et une qualité irréprochable, du premier coup de pinceau à la livraison finale.
+                    {t('savoirFairePage.egBox')}
                   </p>
                 </div>
               </div>
@@ -226,7 +205,7 @@ export default function SavoirFairePage() {
                 className="text-center mb-10 uppercase tracking-[0.18em] text-[#555]"
                 style={{ fontSize: '11px' }}
               >
-                L'excellence artisanale dans chaque détail
+                {t('savoirFairePage.excellenceLabel')}
               </p>
             </FadeUp>
 
@@ -240,7 +219,7 @@ export default function SavoirFairePage() {
                     {/* Image N&B → couleur */}
                     <motion.img
                       src={c.img}
-                      alt={c.title}
+                      alt={t(`savoirFairePage.${c.id}`)}
                       className="absolute inset-0 w-full h-full object-cover"
                       style={{ filter: 'grayscale(100%)' }}
                       variants={{ hovered: { filter: 'grayscale(0%)', scale: 1.04 } }}
@@ -261,14 +240,14 @@ export default function SavoirFairePage() {
                         className="text-white uppercase font-semibold mb-2"
                         style={{ fontSize: '12px', letterSpacing: '0.14em' }}
                       >
-                        {c.title}
+                        {t(`savoirFairePage.${c.id}`)}
                       </p>
                       {/* Texte toujours visible sur mobile */}
                       <p
                         className="text-white/80 font-light leading-relaxed md:hidden"
                         style={{ fontSize: '11px' }}
                       >
-                        {c.text}
+                        {t(`savoirFairePage.${c.id}Text`)}
                       </p>
                       {/* Texte au survol sur desktop */}
                       <motion.p
@@ -277,7 +256,7 @@ export default function SavoirFairePage() {
                         variants={{ hovered: { opacity: 1, y: 0 } }}
                         transition={{ duration: 0.3, delay: 0.08 }}
                       >
-                        {c.text}
+                        {t(`savoirFairePage.${c.id}Text`)}
                       </motion.p>
                     </div>
                   </motion.div>
@@ -301,7 +280,7 @@ export default function SavoirFairePage() {
                   letterSpacing: '0.14em',
                 }}
               >
-                Expertises
+                {t('savoirFairePage.expertisesTitle')}
               </h2>
             </FadeUp>
 
@@ -321,22 +300,13 @@ export default function SavoirFairePage() {
                   className="font-medium mb-5"
                   style={{ fontSize: 'clamp(16px, 2vw, 26px)', fontWeight: 400 }}
                 >
-                  Bureau d'études & Architectes
+                  {t('savoirFairePage.bureauTitle')}
                 </h3>
                 <p className="text-[#444] leading-relaxed mb-4" style={{ fontSize: '13px' }}>
-                  Au sein de notre entreprise, notre <strong>bureau d'études</strong> incarne l'alliance
-                  parfaite entre <strong>créativité et ingénierie</strong>. Composé d'une équipe{' '}
-                  <strong>pluridisciplinaire</strong>, il constitue le pilier stratégique de la conception
-                  et du développement de vos projets.
+                  {t('savoirFairePage.bureau1')}
                 </p>
                 <p className="text-[#444] leading-relaxed" style={{ fontSize: '13px' }}>
-                  Dirigé par un responsable de département, notre bureau rassemble l'expertise d'un{' '}
-                  <strong>architecte</strong>, de deux <strong>scénographes</strong> et d'un{' '}
-                  <strong>dessinateur industriel</strong>. Ensemble, nous concevons des espaces et des
-                  solutions sur mesure, en intégrant une approche à la fois artistique et technique
-                  adaptée à chaque besoin spécifique. Afin de garantir la qualité et la faisabilité
-                  de chaque création, nous effectuons un suivi rigoureux de la production dans nos
-                  ateliers, du prototypage à la fabrication finale.
+                  {t('savoirFairePage.bureau2')}
                 </p>
               </FadeUp>
             </div>
@@ -348,14 +318,10 @@ export default function SavoirFairePage() {
                   className="font-medium mb-5"
                   style={{ fontSize: 'clamp(16px, 2vw, 26px)', fontWeight: 400 }}
                 >
-                  Modélisation 3D & Maquette
+                  {t('savoirFairePage.modelTitle')}
                 </h3>
                 <p className="text-[#444] leading-relaxed" style={{ fontSize: '13px' }}>
-                  Notre atelier de modélisation 3D transforme vos idées en rendus photoréalistes précis,
-                  vous permettant de visualiser chaque espace avant sa réalisation. Complétée par la
-                  confection de maquettes physiques, cette phase de conception garantit des décisions
-                  éclairées, une communication fluide avec vos équipes et l'absence de mauvaises
-                  surprises sur chantier.
+                  {t('savoirFairePage.modelText')}
                 </p>
               </FadeUp>
               <FadeUp className="md:order-2 order-1">
@@ -385,14 +351,10 @@ export default function SavoirFairePage() {
                   className="font-medium mb-5"
                   style={{ fontSize: 'clamp(16px, 2vw, 26px)', fontWeight: 400 }}
                 >
-                  Usines & Terrains
+                  {t('savoirFairePage.usinesTitle')}
                 </h3>
                 <p className="text-[#444] leading-relaxed" style={{ fontSize: '13px' }}>
-                  G2V dispose de ses propres ateliers de fabrication et d'espaces de stockage,
-                  lui permettant de concevoir et produire en interne l'ensemble des éléments
-                  nécessaires à vos projets. De la découpe à la finition, nos usines sont équipées
-                  pour répondre aux exigences du luxe et de l'événementiel à grande échelle —
-                  avec la réactivité et la flexibilité que demandent les projets d'exception.
+                  {t('savoirFairePage.usinesText')}
                 </p>
               </FadeUp>
             </div>

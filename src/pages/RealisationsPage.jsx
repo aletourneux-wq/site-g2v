@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import { useLang } from '../i18n/LanguageContext'
 
 /* ── Projets ── */
 const PROJECTS = [
@@ -22,9 +23,9 @@ const PROJECTS = [
 ]
 
 const FILTERS = [
-  { key: 'TOUS',          label: 'Tous' },
-  { key: 'Événementiel',  label: 'Événementiel' },
-  { key: 'Travaux',       label: 'Travaux' },
+  { key: 'TOUS',          labelKey: 'realisationsPage.filterAll' },
+  { key: 'Événementiel',  labelKey: 'realisationsPage.filterEvent' },
+  { key: 'Travaux',       labelKey: 'realisationsPage.filterTravaux' },
 ]
 
 /* ── FadeUp ── */
@@ -44,7 +45,7 @@ function FadeUp({ children, delay = 0 }) {
 }
 
 /* ── Card ── */
-function ProjectCard({ project, index }) {
+function ProjectCard({ project, index, t }) {
   const Wrapper = project.href ? Link : 'div'
   return (
     <Wrapper to={project.href || undefined}>
@@ -84,7 +85,7 @@ function ProjectCard({ project, index }) {
           variants={{ hovered: { opacity: 1, y: 0 } }}
           transition={{ duration: 0.25, delay: 0.12 }}
         >
-          Voir le projet →
+          {t('realisationsPage.seeProject')}
         </motion.p>
       </div>
     </motion.div>
@@ -99,6 +100,7 @@ export default function RealisationsPage() {
   const [displayedItems, setDisplayedItems] = useState([])
   const sentinelRef = useRef(null)
   const loadCountRef = useRef(0)
+  const { t } = useLang()
 
   /* Projets filtrés */
   const filtered = useMemo(() =>
@@ -156,12 +158,10 @@ export default function RealisationsPage() {
                 className="uppercase text-center mb-8"
                 style={{ fontSize: 'clamp(34px, 7vw, 96px)', fontWeight: 100, letterSpacing: '0.1em', lineHeight: 1 }}
               >
-                Réalisations
+                {t('realisationsPage.title')}
               </h1>
               <p className="text-[14px] text-[#555] font-light max-w-[540px] mx-auto leading-relaxed">
-                G2V transforme vos espaces en expériences. De la scénographie événementielle
-                (fashion show, pop-up, exhibition) à l'aménagement de vos lieux de vie et de
-                travail (retail, office, home), explorez l'ensemble de nos réalisations.
+                {t('realisationsPage.subtitle')}
               </p>
             </FadeUp>
           </div>
@@ -170,7 +170,7 @@ export default function RealisationsPage() {
         {/* ── Filtres ── */}
         <section className="container-wide mb-10">
           <div className="flex items-end gap-8 border-b border-[#E0E0E0]">
-            {FILTERS.map(({ key, label }) => {
+            {FILTERS.map(({ key, labelKey }) => {
               const isActive = activeFilter === key
               return (
                 <button
@@ -182,12 +182,12 @@ export default function RealisationsPage() {
                       : 'text-[#999] border-transparent hover:text-[#0A0A0A]'
                   }`}
                 >
-                  {label}
+                  {t(labelKey)}
                 </button>
               )
             })}
             <span className="ml-auto pb-4 text-[11px] tracking-[0.12em] text-[#AAAAAA]">
-              {filtered.length} projet{filtered.length > 1 ? 's' : ''}
+              {filtered.length} {filtered.length > 1 ? t('realisationsPage.projects') : t('realisationsPage.project')}
             </span>
           </div>
         </section>
@@ -196,7 +196,7 @@ export default function RealisationsPage() {
         <section className="container-wide pb-24 md:pb-32">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[3px] md:gap-1">
             {displayedItems.map((project) => (
-              <ProjectCard key={project._uid} project={project} index={project._uid % 3} />
+              <ProjectCard key={project._uid} project={project} index={project._uid % 3} t={t} />
             ))}
           </div>
 
